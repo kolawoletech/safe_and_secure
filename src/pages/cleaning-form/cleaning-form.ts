@@ -1,24 +1,34 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the CleaningFormPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-@IonicPage()
+import { Component, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NavController } from 'ionic-angular';
+ 
 @Component({
-  selector: 'page-cleaning-form',
-  templateUrl: 'cleaning-form.html',
+  selector: 'page-home',
+  templateUrl: 'home.html'
 })
 export class CleaningFormPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CleaningFormPage');
-  }
-
+ 
+    @ViewChild('cleaningSlider') cleaningSlider: any;
+ 
+    slideOneForm: FormGroup;
+    slideTwoForm: FormGroup;
+ 
+    submitAttempt: boolean = false;
+ 
+    constructor(public navCtrl: NavController, public formBuilder: FormBuilder) {
+ 
+    }
+ 
+    next(){
+        this.cleaningSlider.slideNext();
+    }
+ 
+    prev(){
+        this.cleaningSlider.slidePrev();
+    }
+ 
+    save(){
+ 
+    }
+ 
 }

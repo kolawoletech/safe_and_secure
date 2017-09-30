@@ -11,6 +11,10 @@ import { CartPage } from '../pages/cart/cart';
 import { ProductsPage } from '../pages/products/products';
 import { CategoriesPage } from '../pages/categories/categories';
 
+import { RealEstatePage } from '../pages/real-estate/real-estate';
+import { PropertyListPage } from '../pages/property-list/property-list';
+import { BrokerListPage } from '../pages/broker-list/broker-list';
+
 
 import {MarketcloudService} from '../providers/marketcloud-service';
 import {ConfigurationService} from '../providers/configuration-service';
@@ -57,7 +61,10 @@ export class MyApp {
       this.pages = [
         { title: 'Home', component: ProductsPage },
         { title: 'Categories', component: CategoriesPage },
-        { title: 'Cart', component: CartPage }
+        { title: 'Cart', component: CartPage },
+        { title: 'Real-Estate', component: RealEstatePage },
+        { title: 'Brokers', component: BrokerListPage },
+        { title: 'Properties', component: PropertyListPage }
       ];
 
 

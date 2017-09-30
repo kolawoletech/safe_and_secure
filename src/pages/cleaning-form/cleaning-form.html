@@ -1,18 +1,47 @@
-<!--
-  Generated template for the CleaningFormPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>CleaningForm</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>
+      Cleaning Form
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button icon-left (click)="prev()"><ion-icon name="arrow-back"></ion-icon> Prev</button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-right (click)="next()">Next <ion-icon name="arrow-forward"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
+<ion-content>
 
-<ion-content padding>
+  <ion-slides #cleaningSlider>
+    <ion-slide>
+      <ion-list no-lines>   
+        <form [formGroup]="slideOneForm">
+          <ion-item>
+              <ion-label floating>First Name</ion-label>
+              <ion-input formControlName="firstName" type="text"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+              <ion-label floating>Last Name</ion-label>
+              <ion-input formControlName="lastName" type="text"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+              <ion-label floating>Age</ion-label>
+              <ion-input formControlName="age" type="number"></ion-input>
+          </ion-item>
+      
+        </form>
+      </ion-list>
+
+    </ion-slide>
+
+    <ion-slide>
+
+    </ion-slide>
+
+  </ion-slides>
 
 </ion-content>
