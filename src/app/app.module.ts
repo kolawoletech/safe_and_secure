@@ -9,11 +9,27 @@ import { OrderCompleteModalPage } from '../pages/order-complete-modal/order-comp
 import { ItemPage } from '../pages/item/item';
 import { CartPage } from '../pages/cart/cart';
 
+import { BrokerListPage } from '../pages/broker-list/broker-list';
+import { BrokerDetailPage } from '../pages/broker-detail/broker-detail';
+import { FavoriteListPage } from '../pages/favorite-list/favorite-list';
+import { PropertyDetailPage } from '../pages/property-detail/property-detail';
+import { PropertyListPage } from '../pages/property-list/property-list';
+import { RealEstatePage } from '../pages/real-estate/real-estate';
+
+import { DeliveryFormPage } from '../pages/delivery-form/delivery-form';
+import { MaintenanceFormPage } from '../pages/maintenance-form/maintenance-form';
+import { CleaningFormPage } from '../pages/cleaning-form/cleaning-form';
+
 import { ConfigurationService } from '../providers/configuration-service';
 import { IonicStorageModule } from '@ionic/storage'
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { BraintreeProvider } from '../providers/braintree/braintree';
+
+import { PropertyService } from '../providers/property-service-mock';
+import { BrokerService } from '../providers/broker-service-mock';
+
+
 
 @NgModule({
   declarations: [
@@ -23,13 +39,23 @@ import { BraintreeProvider } from '../providers/braintree/braintree';
     ItemPage,
     CartPage,
     CheckoutPage,
-    OrderCompleteModalPage
+    OrderCompleteModalPage,
+    BrokerListPage,
+    BrokerDetailPage,
+    FavoriteListPage,
+    PropertyDetailPage,
+    PropertyListPage,
+    RealEstatePage,
+    DeliveryFormPage,
+    CleaningFormPage,
+    MaintenanceFormPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -39,11 +65,22 @@ import { BraintreeProvider } from '../providers/braintree/braintree';
     ItemPage,
     CartPage,
     CheckoutPage,
-    OrderCompleteModalPage
+    OrderCompleteModalPage,
+    BrokerListPage,
+    BrokerDetailPage,
+    FavoriteListPage,
+    PropertyDetailPage,
+    PropertyListPage,
+    RealEstatePage,
+    DeliveryFormPage,
+    CleaningFormPage,
+    MaintenanceFormPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ConfigurationService, BraintreeProvider
+    ConfigurationService, BraintreeProvider,
+    PropertyService,
+    BrokerService,
   ]
 })
 export class AppModule {}
