@@ -28,6 +28,8 @@ import { BraintreeProvider } from '../providers/braintree/braintree';
 
 import { PropertyService } from '../providers/property-service-mock';
 import { BrokerService } from '../providers/broker-service-mock';
+import { UserProvider } from '../providers/user-provider/user-provider';
+
 
 
 
@@ -80,7 +82,7 @@ import { BrokerService } from '../providers/broker-service-mock';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConfigurationService, BraintreeProvider,
     PropertyService,
-    BrokerService,
+    BrokerService, UserProvider
   ]
 })
 export class AppModule {}

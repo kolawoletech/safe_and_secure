@@ -4,7 +4,7 @@ import { NavController } from 'ionic-angular';
  
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'cleaning-form.html'
 })
 export class CleaningFormPage {
  
