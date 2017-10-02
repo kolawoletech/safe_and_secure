@@ -29,6 +29,10 @@ import { BraintreeProvider } from '../providers/braintree/braintree';
 import { PropertyService } from '../providers/property-service-mock';
 import { BrokerService } from '../providers/broker-service-mock';
 import { UserProvider } from '../providers/user-provider/user-provider';
+import { StorageProvider } from '../providers/storage-provider/storage-provider';
+import { PaypalProvider } from '../providers/paypal/paypal';
+import { PayfastProvider } from '../providers/payfast/payfast';
+
 
 
 
@@ -82,7 +86,7 @@ import { UserProvider } from '../providers/user-provider/user-provider';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConfigurationService, BraintreeProvider,
     PropertyService,
-    BrokerService, UserProvider
+    BrokerService, UserProvider, StorageProvider, PaypalProvider, PayfastProvider
   ]
 })
 export class AppModule {}
