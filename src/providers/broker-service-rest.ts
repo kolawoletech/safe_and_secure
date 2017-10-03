@@ -1,9 +1,10 @@
 import 'rxjs/Rx';
 import {Injectable} from '@angular/core';
-import {SERVER_URL} from './config';
+import { Config } from '../../providers/config';
+
 import {Http} from '@angular/http';
 
-let brokersURL = SERVER_URL + 'brokers/';
+let brokersURL = Config.SERVER_URL + 'brokers/';
 
 @Injectable()
 export class BrokerService {

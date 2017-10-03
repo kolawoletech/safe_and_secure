@@ -15,6 +15,9 @@ import { RealEstatePage } from '../pages/real-estate/real-estate';
 import { PropertyListPage } from '../pages/property-list/property-list';
 import { BrokerListPage } from '../pages/broker-list/broker-list';
 
+import { PaypalPage } from '../pages/paypal/paypal';
+
+
 
 import {MarketcloudService} from '../providers/marketcloud-service';
 import {ConfigurationService} from '../providers/configuration-service';
@@ -64,7 +67,8 @@ export class MyApp {
         { title: 'Cart', component: CartPage },
         { title: 'Real-Estate', component: RealEstatePage },
         { title: 'Brokers', component: BrokerListPage },
-        { title: 'Properties', component: PropertyListPage }
+        { title: 'Properties', component: PropertyListPage },
+        { title: 'Paypal', component: PaypalPage }
       ];
 
 

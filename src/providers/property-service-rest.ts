@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions} from '@angular/http';
-import {SERVER_URL} from './config';
+import { Config } from '../../providers/config';
 
-let propertiesURL = SERVER_URL + 'properties/',
+let propertiesURL = Config.SERVER_URL + 'properties/',
     favoritesURL = propertiesURL + 'favorites/';
 
 @Injectable()

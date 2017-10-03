@@ -1,6 +1,8 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal';
+
 
 import { ProductsPage } from '../pages/products/products';
 import { CheckoutPage } from '../pages/checkout/checkout';
@@ -33,9 +35,7 @@ import { StorageProvider } from '../providers/storage-provider/storage-provider'
 import { PaypalProvider } from '../providers/paypal/paypal';
 import { PayfastProvider } from '../providers/payfast/payfast';
 
-
-
-
+import { PayPalModule } from '../pages/paypal/paypal.module';
 
 @NgModule({
   declarations: [
@@ -59,9 +59,9 @@ import { PayfastProvider } from '../providers/payfast/payfast';
   imports: [
     BrowserModule,
     HttpModule,
+    PayPalModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
-    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -86,7 +86,7 @@ import { PayfastProvider } from '../providers/payfast/payfast';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConfigurationService, BraintreeProvider,
     PropertyService,
-    BrokerService, UserProvider, StorageProvider, PaypalProvider, PayfastProvider
+    BrokerService, UserProvider, StorageProvider, PaypalProvider, PayfastProvider, PayPal,
   ]
 })
 export class AppModule {}
