@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Http, Request, RequestMethod } from "@angular/http";
+
 
 /**
  * Generated class for the DeliveryFormPage page.

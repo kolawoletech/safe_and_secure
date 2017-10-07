@@ -8,6 +8,9 @@ import { DeliveryFormPage } from './delivery-form';
   ],
   exports: [
     DeliveryFormPage
+  ],
+  entryComponents: [
+    DeliveryFormPage
   ]
 })
 export class DeliveryFormPageModule {}

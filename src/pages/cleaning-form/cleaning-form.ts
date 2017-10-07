@@ -15,8 +15,14 @@ export class CleaningFormPage {
  
     submitAttempt: boolean = false;
  
-    constructor(public navCtrl: NavController, public formBuilder: FormBuilder) {
- 
+    constructor(public navCtrl: NavController, private formBuilder: FormBuilder) {
+        this.slideOneForm = this.formBuilder.group({
+
+        });
+        
+        this.slideTwoForm = this.formBuilder.group({
+
+        });     
     }
  
     next(){

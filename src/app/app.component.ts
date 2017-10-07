@@ -17,6 +17,7 @@ import { BrokerListPage } from '../pages/broker-list/broker-list';
 
 import { PaypalPage } from '../pages/paypal/paypal';
 
+import { CleaningFormPage } from '../pages/cleaning-form/cleaning-form';
 
 
 import {MarketcloudService} from '../providers/marketcloud-service';
@@ -68,6 +69,7 @@ export class MyApp {
         { title: 'Real-Estate', component: RealEstatePage },
         { title: 'Brokers', component: BrokerListPage },
         { title: 'Properties', component: PropertyListPage },
+        { title: 'Cleaning', component: CleaningFormPage },
         { title: 'Paypal', component: PaypalPage }
       ];
 
