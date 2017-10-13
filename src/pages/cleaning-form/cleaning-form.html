@@ -17,22 +17,25 @@
   <ion-slides #cleaningSlider>
     <ion-slide>
       <ion-list no-lines>   
-        <form [formGroup]="slideOneForm" (ngSubmit)="logForm()"> 
+        <form [formGroup]="slideOneForm"> 
           <ion-item>
               <ion-label floating>First Name</ion-label>
-              <ion-input formControlName="firstName" type="text"></ion-input>
+              <ion-input formControlName="name" type="text"></ion-input>
           </ion-item>
   
           <ion-item>
               <ion-label floating>Last Name</ion-label>
-              <ion-input formControlName="lastName" type="text"></ion-input>
+              <ion-input formControlName="phone" type="text"></ion-input>
           </ion-item>
   
           <ion-item>
               <ion-label floating>Age</ion-label>
-              <ion-input formControlName="age" type="number"></ion-input>
+              <ion-input formControlName="address" type="text"></ion-input>
           </ion-item>
-      
+          <ion-item>
+            <ion-label floating>Age</ion-label>
+            <ion-input formControlName="email" type="email"></ion-input>
+        </ion-item>      
         </form>
       </ion-list>
 
@@ -42,18 +45,26 @@
       <ion-list no-lines>   
         <form [formGroup]="slideTwoForm">
           <ion-item>
-              <ion-label floating>First Name</ion-label>
-              <ion-input formControlName="firstName" type="text"></ion-input>
+            <ion-label>Frequency</ion-label>
+            <ion-select formControlName="frequency">
+              <ion-option value="f">Female</ion-option>
+              <ion-option value="m">Male</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>Specifications</ion-label>
+            <ion-select formControlName="specifications">
+              <ion-option value="f">Female</ion-option>
+              <ion-option value="m">Male</ion-option>
+            </ion-select>
           </ion-item>
   
           <ion-item>
-              <ion-label floating>Last Name</ion-label>
-              <ion-input formControlName="lastName" type="text"></ion-input>
-          </ion-item>
-  
-          <ion-item>
-              <ion-label floating>Age</ion-label>
-              <ion-input formControlName="age" type="number"></ion-input>
+            <ion-label>Number of Floors</ion-label>
+            <ion-select formControlName="floors">
+              <ion-option value="f">Female</ion-option>
+              <ion-option value="m">Male</ion-option>
+            </ion-select>
           </ion-item>
       
         </form>

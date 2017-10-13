@@ -15,13 +15,18 @@ export class CleaningFormPage {
  
     submitAttempt: boolean = false;
  
-    constructor(public navCtrl: NavController, private formBuilder: FormBuilder) {
+    constructor(public navCtrl: NavController, public formBuilder: FormBuilder) {
         this.slideOneForm = this.formBuilder.group({
-
+            name: [''],
+            phone: [''],
+            address: [''],
+            email: ['']
         });
         
         this.slideTwoForm = this.formBuilder.group({
-
+            frequency: [''],
+            specifications: [''],
+            floors: ['']    
         });     
     }
  
