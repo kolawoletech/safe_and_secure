@@ -1,0 +1,62 @@
+<!-- Segment in a header -->
+<ion-header>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="auth" color="secondary">
+      <ion-segment-button value="camera">
+        <ion-icon name="person">Login</ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="bookmark">
+        <ion-icon name="create">Register</ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div [ngSwitch]="auth">
+    <div *ngSwitchCase="'login'">
+      <form [formGroup]="loginForm">
+      <ion-list>
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="text" formControlName="email"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label floating>Password </ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </ion-list>
+  
+        <div padding>
+          <button block (click)="login()" [disabled]="!loginForm.valid">Sign In</button>
+        </div>
+      </form>
+    </div>
+  
+    <div *ngSwitchCase="'register'">
+      <form [formGroup]="regForm">
+        <ion-list>
+          <ion-item>
+            <ion-label floating>Name</ion-label>
+            <ion-input type="text" formControlName="name"></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="text" formControlName="email"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </ion-list>
+  
+        <div padding>
+          <button block (click)="register()" [disabled]="!regForm.valid">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>

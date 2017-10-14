@@ -19,8 +19,10 @@ import { PaypalPage } from '../pages/paypal/paypal';
 
 import { CleaningFormPage } from '../pages/cleaning-form/cleaning-form';
 
+import { AuthPage } from '../pages/auth/auth';
 
-import {MarketcloudService} from '../providers/marketcloud-service';
+
+import { MarketcloudService } from '../providers/marketcloud-service';
 import {ConfigurationService} from '../providers/configuration-service';
 
 
@@ -70,7 +72,9 @@ export class MyApp {
         { title: 'Brokers', component: BrokerListPage },
         { title: 'Properties', component: PropertyListPage },
         { title: 'Cleaning', component: CleaningFormPage },
-        { title: 'Paypal', component: PaypalPage }
+        { title: 'Paypal', component: PaypalPage },
+        { title: 'Auth', component: AuthPage }
+        
       ];
 
 

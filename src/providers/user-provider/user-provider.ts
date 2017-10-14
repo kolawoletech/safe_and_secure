@@ -1,13 +1,16 @@
-import {Injectable} from '@angular/core';
-import {MarketcloudService} from '../marketcloud-service';
+import { Injectable } from '@angular/core';
+import { MarketcloudService } from '../marketcloud-service';
 import {StorageProvider} from '../storage-provider/storage-provider';
 declare let marketcloud:any;
 @Injectable()
 export class UserProvider {
   market:any;
+  
   constructor(public marketProvider: MarketcloudService , public storage:StorageProvider) {
-   this.market = this.marketProvider.client();
+   
   }
+
+  
 
   isLoggedIn() {
     let user = this.storage.getObject('user');

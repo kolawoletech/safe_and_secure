@@ -35,7 +35,13 @@ import { StorageProvider } from '../providers/storage-provider/storage-provider'
 import { PaypalProvider } from '../providers/paypal/paypal';
 import { PayfastProvider } from '../providers/payfast/payfast';
 
+import { UtilProvider } from '../providers/util-provider/util-provider';
+
 import { PayPalModule } from '../pages/paypal/paypal.module';
+
+import { MarketcloudService } from '../providers/marketcloud-service';
+import { AuthPage } from '../pages/auth/auth';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +60,8 @@ import { PayPalModule } from '../pages/paypal/paypal.module';
     RealEstatePage,
     DeliveryFormPage,
     CleaningFormPage,
-    MaintenanceFormPage
+    MaintenanceFormPage,
+    AuthPage 
   ],
   imports: [
     BrowserModule,
@@ -80,13 +87,14 @@ import { PayPalModule } from '../pages/paypal/paypal.module';
     RealEstatePage,
     DeliveryFormPage,
     CleaningFormPage,
-    MaintenanceFormPage
+    MaintenanceFormPage,
+    AuthPage 
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConfigurationService, BraintreeProvider,
     PropertyService,
-    BrokerService, UserProvider, StorageProvider, PaypalProvider, PayfastProvider, PayPal,
+    BrokerService, UserProvider, StorageProvider, PaypalProvider, PayfastProvider, PayPal, UtilProvider,MarketcloudService
   ]
 })
 export class AppModule {}
