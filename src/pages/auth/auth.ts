@@ -35,13 +35,13 @@ export class AuthPage {
     this.loginForm = form.group({
        // email: ["",Validators.compose([Validators.required, validateEmail])],
         email: [''],
-        password:[""]
+        password:['']
     });
     
     this.regForm = form.group({
-        name: [""],
+        name: [''],
         email: [''],
-        password:[''],
+        password:['']
     });
   }
   
@@ -55,7 +55,7 @@ export class AuthPage {
     .then((user)=> {
       this.storage.setObject('user', user);
       this.events.publish('user:logged_in');
-      this.nav.pop();
+      //this.nav.pop();
     })
     .catch((error) => {
       let message = error.message;

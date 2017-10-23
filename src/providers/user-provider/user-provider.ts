@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
 import { MarketcloudService } from '../marketcloud-service';
 import {StorageProvider} from '../storage-provider/storage-provider';
-declare let marketcloud:any;
+declare let Marketcloud:any;
+
+
+
 @Injectable()
 export class UserProvider {
-  market:any;
+ 
+  marketProvider :any;
   
-  constructor(public marketProvider: MarketcloudService , public storage:StorageProvider) {
-   
+  constructor(public storage:StorageProvider) {
+    this.marketProvider = new Marketcloud.Client({
+    	publicKey : '78007c41-7f1c-454e-8b1f-600c96fa24ba' // REPLACE WITH YOUR PUBLIC KEY
+    });
   }
 
   
@@ -22,7 +28,7 @@ export class UserProvider {
   createUser(user) {
     let promise = new Promise((resolve, reject) => {
       console.log(user);
-      this.market.users.create(user, (err, user) => {
+      this.marketProvider.users.create(user, (err, user) => {
         if(user) {
           resolve(user);
         } else {
@@ -35,7 +41,7 @@ export class UserProvider {
 
   authUser(user) {
     let promise = new Promise((resolve, reject) => {
-        this.market.users.authenticate(user.email, user.password, (err, data) => {
+        this.marketProvider.users.authenticate(user.email, user.password, (err, data) => {
           if(err) {
             reject(err);
           } else {
@@ -48,13 +54,13 @@ export class UserProvider {
 
   logout() {
     this.storage.remove('user');
-    marketcloud.token = null;
-    delete marketcloud.user;
+    Marketcloud.token = null;
+    delete Marketcloud.user;
   }
 
 getCurrentUser() {
   let promise = new Promise((resolve, reject) => {
-      this.market.users.getCurrent((err, user) => {
+      this.marketProvider.users.getCurrent((err, user) => {
         if(user) {
           resolve(user);
         } else {
@@ -68,7 +74,7 @@ getCurrentUser() {
   
  getAddress() {
    let promise = new Promise((resolve, reject) => {
-      this.market.addresses.list({},(err, address) => {
+      this.marketProvider.addresses.list({},(err, address) => {
         console.log(err,address)
         if(address) {
           resolve(address);
@@ -82,7 +88,7 @@ getCurrentUser() {
  
  createAddress(address) {
    let promise = new Promise((resolve, reject) => {
-     this.market.addresses.create(address, (err, address) => {
+     this.marketProvider.addresses.create(address, (err, address) => {
        if(address) {
          resolve(address);
        } else {
