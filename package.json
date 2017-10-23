@@ -10,7 +10,7 @@
     "ionic:serve": "ionic-app-scripts serve",
     "node:start": "node server.js",
     "start": "node ./www.js",
-    "build": "grunt dist",
+    "build": "grunt dist", 
     "postinstall": "./node_modules/bower/bin/bower install && npm run build"
   },
   "dependencies": {
