@@ -92,29 +92,36 @@
       <ion-input type="text" placeholder="Evergreen terrace 123"  (ngModel)="address.address1"></ion-input>
     </ion-item>
 
-   
+
 
   </ion-list>
 
 
 
 
- <form id="payment-form" method="post" action="/" [hidden]="currentStep !== 'Payment'">
-      
+ <form id="payment-form"  action="https://sandbox.payfast.co.za/eng/process" method="POST" [hidden]="currentStep !== 'Payment'">
+  <input type="hidden" name="merchant_id" value="10000100">
+  <input type="hidden" name="merchant_key" value="46f0cd694581a">
+  <input type="hidden" name="return_url" value="https://www.yoursite.com/return">
+  <input type="hidden" name="cancel_url" value="https://www.yoursite.com/cancel">
+  <input type="hidden" name="notify_url" value="https://www.yoursite.com/notify">
       <label for="credit-card-number">Card number</label>
       <div id="credit-card-number" class="hosted-field">
       </div>
-   
+
       <label for="cvv">CVV</label>
       <div id="cvv" class="hosted-field"></div>
-  
+
       <label for="expiration-date">Expiration date</label>
       <div id="expiration-date" class="hosted-field"></div>
-   
-     
+
+
         <input type="submit" id="submitButton" style="visibility: hidden;">
-   
+
 </form>
+
+
+
 
 
 
@@ -148,8 +155,8 @@
   <ion-card-content *ngIf="cart.items.length > 0">
       <div>Total for this order is $ {{cart.total}}</div>
   </ion-card-content>
- 
-    
+
+
 </ion-card>
 
   </div>
@@ -161,7 +168,7 @@
 
 <ion-footer>
   <ion-toolbar>
-    
+
       <button ion-button color="primary" block (click)=proceedToNextStep() *ngIf="currentStep !== 'Review'">
         Proceed
       </button>
@@ -169,7 +176,7 @@
       <button ion-button color="primary" block (click)=completeCheckout() *ngIf="currentStep === 'Review'">
         Complete checkout
       </button>
-    
+
   </ion-toolbar>
 </ion-footer>
 

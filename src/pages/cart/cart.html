@@ -45,15 +45,19 @@
   <ion-card-content *ngIf="cart.items.length > 0">
       <div>Total for this order is R {{cart.total}}</div>
   </ion-card-content>
- 
-    
+
+
 </ion-card>
 <ion-card>
   <ion-card-content>
-  	
-   <button ion-button full 
+
+   <button ion-button full
       (click)="proceedToCheckout()"
       [disabled]="0 === cart.items.length">Checkout</button>
+
+    <button ion-button full
+      (click)="proceedToCheckout()"
+      [disabled]="0 === cart.items.length">PayPal Checkout</button>
     </ion-card-content>
 </ion-card>
 </ion-content>

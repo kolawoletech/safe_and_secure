@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams,AlertController  } from 'ionic-angular';
-import { MarketcloudService } from '../../providers/marketcloud-service'; 
+import { MarketcloudService } from '../../providers/marketcloud-service';
 import {ConfigurationService} from '../../providers/configuration-service';
 
 import {CheckoutPage} from '../checkout/checkout';
@@ -21,7 +21,7 @@ export class CartPage {
   				public alertCtrl: AlertController,
   				public configuration: ConfigurationService,
   				public marketcloud: MarketcloudService) {
-  	
+
 
 
   }
@@ -70,7 +70,7 @@ export class CartPage {
   		this.cart = response.data;
   	})
   	.catch((error) => {
-  		
+
   		let alert = this.alertCtrl.create({
           title: 'Oops',
           subTitle: 'An error has occurred, cart not updated',
@@ -108,5 +108,8 @@ export class CartPage {
     // Showing single product details
     this.navCtrl.push(CheckoutPage);
   }
-
+  proceedToPayPalCheckout() {
+    // Showing single product details
+    this.navCtrl.push(CheckoutPage);
+  }
 }

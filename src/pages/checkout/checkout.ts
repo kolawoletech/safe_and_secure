@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
-import {BraintreeProvider} from '../../providers/braintree/braintree';
-import {ConfigurationService} from '../../providers/configuration-service';
-import { MarketcloudService } from '../../providers/marketcloud-service'; 
+import { ConfigurationService } from '../../providers/configuration-service';
+import { MarketcloudService } from '../../providers/marketcloud-service';
 
 import { OrderCompleteModalPage } from '../order-complete-modal/order-complete-modal';
 
@@ -37,7 +36,6 @@ export class CheckoutPage {
     public loadingCtrl: LoadingController,
     public navCtrl: NavController,
     public navParams: NavParams,
-    private braintreeClient: BraintreeProvider,
     public configuration: ConfigurationService,
     public alertCtrl  :AlertController,
     public marketcloud: MarketcloudService) {
@@ -45,13 +43,13 @@ export class CheckoutPage {
     // Initial step counter
     this.step = 0;
     this.currentStep = "Address";
-    
+
 
     // Available steps
     //"Address",
     //"Payment",
     //"Review"
-    
+
     this.address = {
       full_name : "John Doe",
       country : " Italy",
@@ -75,14 +73,14 @@ export class CheckoutPage {
 
         alert.present();
     })
-   
+
   }
 
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CheckoutPage');
     var that : any = this;
-    var braintreeIntegrationConfig : any = {
+    var payfastIntegrationConfig : any = {
         id: "payment-form",
         hostedFields: {
           number: {
@@ -102,7 +100,7 @@ export class CheckoutPage {
               'color': '#3A3A3A',
               'height':  '32px',
               'border' : '1px solid #ccc',
-              
+
             },
 
             // Styling a specific field
@@ -130,19 +128,6 @@ export class CheckoutPage {
           that.braintreeNonce = response.nonce;
         }
       };
-
-    this.marketcloud.client.payments.braintree.createClientToken()
-    .then ( (response) => {
-      // We got the Braintree Token from Marketcloud
-      this.braintreeClient.braintreeClient.setup(response.data.clientToken, "custom", braintreeIntegrationConfig);
-    })
-    .catch( (error) => {
-      alert("An error has occurred, payment gateway not available");
-      console.log(error);
-    })
-      
-
-    
   }
 
 
@@ -158,7 +143,7 @@ export class CheckoutPage {
   proceedToNextStep() {
 
     if (this.currentStep === "Address") {
-      this.currentStep = "Payment";
+      this.currentStep = "Review";
       return;
     }
 
@@ -185,7 +170,7 @@ export class CheckoutPage {
 
     }
 
-   
+
 
   }
 
@@ -197,21 +182,21 @@ export class CheckoutPage {
         });
 
         loading.present();
-        
+
         return this.marketcloud.client.orders.create({
           shipping_address : this.address,
           billing_address : this.address,
           cart_id : Number(this.configuration.get('cart_id'))
         })
         .then( (response) => {
-          
+
           // Order was correctly created, we now handle the payment
           var nonce = this.braintreeNonce;
           // Making the transaction
           return this.marketcloud.client.payments.create({
-            method : 'Braintree',
-            nonce : nonce,
-            order_id : response.data.id
+            method : 'PayFast',
+            order_id : response.data.id,
+            payment_method_id: 135405
           })
         })
         .then( (response) => {
@@ -220,7 +205,7 @@ export class CheckoutPage {
 
             // The modal will show "Order complete"
             let myModal = this.modalCtrl.create(OrderCompleteModalPage);
-            
+
             // Emptying the view stack
             this.navCtrl.popToRoot()
             .then( () => {
