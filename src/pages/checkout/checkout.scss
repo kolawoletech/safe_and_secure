@@ -1,3 +1,22 @@
 page-checkout {
+    .hosted-field {
+        margin: 10px;
+        border: 0px;
+        border-bottom: 2px solid #ccc;
+        height: 32px;
+        -webkit-transition: border-color 160ms;
+        transition: border-color 160ms;
+      }
 
+      #credit-card-number.braintree-hosted-fields-focused {
+        border-color: #777;
+      }
+
+      #credit-card-number.braintree-hosted-fields-invalid {
+        border-color: tomato;
+      }
+
+      #credit-card-number.braintree-hosted-fields-valid {
+        border-color: limegreen;
+      }
 }

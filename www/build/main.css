@@ -25322,6 +25322,26 @@ page-categories .card-background-page .card-subtitle {
   color: #fff;
 }
 
+page-checkout .hosted-field {
+  margin: 10px;
+  border: 0px;
+  border-bottom: 2px solid #ccc;
+  height: 32px;
+  transition: border-color 160ms;
+}
+
+page-checkout #credit-card-number.braintree-hosted-fields-focused {
+  border-color: #777;
+}
+
+page-checkout #credit-card-number.braintree-hosted-fields-invalid {
+  border-color: tomato;
+}
+
+page-checkout #credit-card-number.braintree-hosted-fields-valid {
+  border-color: limegreen;
+}
+
 page-products scroll-content {
   display: -webkit-flex;
   display: -ms-flexbox;

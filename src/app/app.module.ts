@@ -2,7 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal';
-
+import { ReactiveFormsModule } from '@angular/forms'
 
 import { ProductsPage } from '../pages/products/products';
 import { CheckoutPage } from '../pages/checkout/checkout';
@@ -61,12 +61,13 @@ import { AuthPage } from '../pages/auth/auth';
     DeliveryFormPage,
     CleaningFormPage,
     MaintenanceFormPage,
-    AuthPage 
+    AuthPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     PayPalModule,
+    ReactiveFormsModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
   ],
@@ -88,7 +89,7 @@ import { AuthPage } from '../pages/auth/auth';
     DeliveryFormPage,
     CleaningFormPage,
     MaintenanceFormPage,
-    AuthPage 
+    AuthPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

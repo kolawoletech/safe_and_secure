@@ -2,13 +2,18 @@ import { NgModule } from '@angular/core';
 import { IonicModule } from 'ionic-angular';
 import { CheckoutPage } from './checkout';
 
+
 @NgModule({
   declarations: [
-    CheckoutPage,
+    CheckoutPage
   ],
   imports: [
-  ],
+
+   ],
   exports: [
+    CheckoutPage
+  ],
+  entryComponents: [
     CheckoutPage
   ]
 })

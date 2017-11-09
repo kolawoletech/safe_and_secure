@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 
-import {MarketcloudService} from '../../providers/marketcloud-service';
-import {ConfigurationService} from '../../providers/configuration-service';
+import { MarketcloudService } from '../../providers/marketcloud-service';
+import { ConfigurationService } from '../../providers/configuration-service';
+
+import { CartPage } from '../cart/cart';
 
 import { Storage } from '@ionic/storage';
 /*
@@ -27,7 +29,7 @@ export class ItemPage {
                 private marketcloud: MarketcloudService,
                 public storage: Storage,
                 public configuration: ConfigurationService) {
-  	
+
 
         this.product = this.navParams.get('product');
 
@@ -38,11 +40,11 @@ export class ItemPage {
 
 
   ionViewDidLoad() {
-    
+
   }
 
   addToCart(product) {
-  	
+
   	let loading = this.loadingCtrl.create({
 	    content: 'Adding to cart...'
 	  });
@@ -89,7 +91,7 @@ export class ItemPage {
 
 
   requiredOptionsAreMissing() {
-    
+
 
 
     if (this.product.type === 'product_with_variants') {
@@ -99,5 +101,7 @@ export class ItemPage {
 
     return false;
   }
-
+    viewCart() {
+      this.navCtrl.push(CartPage)
+    }
 }

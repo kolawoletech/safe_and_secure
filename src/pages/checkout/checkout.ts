@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams, AlertController, ModalController, LoadingController} from 'ionic-angular';
+import { Validators, FormBuilder, FormGroup , ReactiveFormsModule } from '@angular/forms';
 import { ConfigurationService } from '../../providers/configuration-service';
 import { MarketcloudService } from '../../providers/marketcloud-service';
-
 import { OrderCompleteModalPage } from '../order-complete-modal/order-complete-modal';
+import { EmailValidator } from '../../validators/email';
 
-import { ModalController } from 'ionic-angular';
-import { LoadingController } from 'ionic-angular';
 
 /**
  * Generated class for the CheckoutPage page.
@@ -28,7 +26,7 @@ export class CheckoutPage {
   currentStep : string;
 
   address : any;
-
+  addressForm:FormGroup;
   braintreeNonce : string;
 
   constructor(
@@ -38,17 +36,13 @@ export class CheckoutPage {
     public navParams: NavParams,
     public configuration: ConfigurationService,
     public alertCtrl  :AlertController,
-    public marketcloud: MarketcloudService) {
+    public marketcloud: MarketcloudService,
+    public form: FormBuilder
+  ) {
 
     // Initial step counter
     this.step = 0;
     this.currentStep = "Address";
-
-
-    // Available steps
-    //"Address",
-    //"Payment",
-    //"Review"
 
     this.address = {
       full_name : "John Doe",
@@ -59,6 +53,11 @@ export class CheckoutPage {
       email  :"john.doe@example.com",
       address1 : "Fake Street"
     };
+    // Available steps
+    //"Address",
+    //"Payment",
+    //"Review"
+
 
     this.marketcloud.client.carts.getById(this.configuration.get('cart_id'))
     .then((response) => {

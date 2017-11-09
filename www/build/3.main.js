@@ -24,10 +24,13 @@ var CheckoutPageModule = (function () {
 CheckoutPageModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_1__checkout__["a" /* CheckoutPage */],
+            __WEBPACK_IMPORTED_MODULE_1__checkout__["a" /* CheckoutPage */]
         ],
         imports: [],
         exports: [
+            __WEBPACK_IMPORTED_MODULE_1__checkout__["a" /* CheckoutPage */]
+        ],
+        entryComponents: [
             __WEBPACK_IMPORTED_MODULE_1__checkout__["a" /* CheckoutPage */]
         ]
     })

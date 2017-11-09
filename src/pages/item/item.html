@@ -24,23 +24,26 @@
     <p *ngSwitchCase="true">R <span st>{{product.price}}</span> <span>{{product.price_discount}}</span></p>
     <p *ngSwitchDefault>R <span style="text-decoration: line-through;">{{product.price}}</span> <span>{{product.price_discount}}</span></p>
     </div>
-    
+
       <ion-list *ngIf="product.type === 'product_with_variants'">
         <ion-item *ngFor="let vName of keys(product.variantsDefinition)">
           <ion-label>{{vName}}</ion-label>
           <ion-select [(ngModel)]="selectedVariants[vName]">
-            <ion-option value="{{vValue}}" 
+            <ion-option value="{{vValue}}"
               *ngFor="let vValue of marketcloud.utils.getVariantValues(vName,product)">{{vValue}}</ion-option>
-            
+
           </ion-select>
         </ion-item>
 </ion-list>
-     
-    
+
+
     <div>
       <button ion-button full (click)="addToCart(product)"
       [disabled]="true === requiredOptionsAreMissing()">Add to cart</button>
     </div>
   </ion-card-content>
 </ion-card>
+<ion-fab right bottom>
+  <button ion-fab color="primary" (click)="viewCart()"><ion-icon name="cart"></ion-icon></button>
+</ion-fab>
 </ion-content>
