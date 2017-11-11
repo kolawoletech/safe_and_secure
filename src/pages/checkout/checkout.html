@@ -24,7 +24,7 @@
 
 
 
-  <ion-list [hidden]="currentStep !== 'Address'">
+  <div [hidden]="currentStep !== 'Address'">
   <form [formGroup]="address" (ngSubmit)="logForm()">
     <ion-item>
       <ion-label fixed>Email address</ion-label>
@@ -60,8 +60,9 @@
       <ion-label fixed>Address</ion-label>
       <ion-input type="text" placeholder="Evergreen terrace 123" formControlName="address1"></ion-input>
     </ion-item>
+    <button ion-button type="submit" [disabled]="!address.valid">Submit</button>
   </form>
-  </ion-list>
+</div>
 
 
 

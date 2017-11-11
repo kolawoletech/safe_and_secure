@@ -20,11 +20,12 @@ import { EmailValidator } from '../../validators/email';
 })
 export class CheckoutPage {
   step : number;
+  customer : any;
 
   cart : any = {items : []};
 
   currentStep : string;
-  public address:FormGroup;
+  public address:any;
   braintreeNonce : string;
 
   constructor(
@@ -43,13 +44,13 @@ export class CheckoutPage {
     this.currentStep = "Address";
 
     this.address = this.formBuilder.group({
-      full_name: ['', Validators.required],
-      country:['', Validators.required],
-      state: ['', Validators.required],
-      city: ['', Validators.required],
-      postal_code: ['', Validators.required],
-      email:['', Validators.required],
-      address1: ['', Validators.required]
+      full_name: [""],
+      country:[""],
+      state: [""],
+      city: [""],
+      postal_code: [""],
+      email:[""],
+      address1: [""]
     });
     // Available steps
     //"Address",
@@ -72,7 +73,9 @@ export class CheckoutPage {
     })
 
   }
-
+  logForm(){
+    console.log(this.address.value)
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CheckoutPage');
@@ -179,16 +182,19 @@ export class CheckoutPage {
         });
 
         loading.present();
-
+        console.log(this.address);
+        this.customer = this.address.value;
+        console.log(this.customer);
         return this.marketcloud.client.orders.create({
-          shipping_address : this.address,
-          billing_address : this.address,
+
+          shipping_address : this.customer,
+          billing_address : this.customer,
           cart_id : Number(this.configuration.get('cart_id'))
         })
         .then( (response) => {
 
           // Order was correctly created, we now handle the payment
-          var nonce = this.braintreeNonce;
+          //var nonce = this.braintreeNonce;
           // Making the transaction
           return this.marketcloud.client.payments.create({
             method : 'PayFast',
@@ -219,5 +225,4 @@ export class CheckoutPage {
         })
       }
   }
-
 }
