@@ -1,8 +1,8 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal';
-import { ReactiveFormsModule } from '@angular/forms'
+import { PayPal } from '@ionic-native/paypal';
+
 
 import { ProductsPage } from '../pages/products/products';
 import { CheckoutPage } from '../pages/checkout/checkout';
@@ -67,7 +67,7 @@ import { AuthPage } from '../pages/auth/auth';
     BrowserModule,
     HttpModule,
     PayPalModule,
-    ReactiveFormsModule,
+
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
   ],

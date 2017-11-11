@@ -25,20 +25,20 @@
 
 
   <ion-list [hidden]="currentStep !== 'Address'">
-
+  <form [formGroup]="address" (ngSubmit)="logForm()">
     <ion-item>
       <ion-label fixed>Email address</ion-label>
-      <ion-input type="email" placeholder="john@example.com" (ngModel)="address.email"></ion-input>
+      <ion-input type="email" placeholder="john@example.com" formControlName="email"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label fixed>Full name</ion-label>
-      <ion-input type="text" placeholder="John Doe" (ngModel)="address.full_name"></ion-input>
+      <ion-input type="text" placeholder="John Doe" formControlName=="full_name"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label fixed>Country</ion-label>
-      <ion-input type="text" placeholder="Moon" (ngModel)="address.country"></ion-input>
+      <ion-input type="text" placeholder="Moon" formControlName="country"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -48,21 +48,19 @@
 
     <ion-item>
       <ion-label fixed>City</ion-label>
-      <ion-input type="text" placeholder="Hidden City" (ngModel)="address.city"></ion-input>
+      <ion-input type="text" placeholder="Hidden City" formControlName=".city"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label fixed>Postal code</ion-label>
-      <ion-input type="text" placeholder="1234" (ngModel)="address.postal_code"></ion-input>
+      <ion-input type="text" placeholder="1234" formControlName="postal_code"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label fixed>Address</ion-label>
-      <ion-input type="text" placeholder="Evergreen terrace 123" (ngModel)="address.address1"></ion-input>
+      <ion-input type="text" placeholder="Evergreen terrace 123" formControlName="address1"></ion-input>
     </ion-item>
-
-
-
+  </form>
   </ion-list>
 
 

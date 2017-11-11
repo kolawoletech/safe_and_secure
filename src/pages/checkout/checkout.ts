@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ModalController, LoadingController} from 'ionic-angular';
-import { Validators, FormBuilder, FormGroup , ReactiveFormsModule } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup  } from '@angular/forms';
 import { ConfigurationService } from '../../providers/configuration-service';
 import { MarketcloudService } from '../../providers/marketcloud-service';
 import { OrderCompleteModalPage } from '../order-complete-modal/order-complete-modal';
@@ -24,9 +24,7 @@ export class CheckoutPage {
   cart : any = {items : []};
 
   currentStep : string;
-
-  address : any;
-  addressForm:FormGroup;
+  public address:FormGroup;
   braintreeNonce : string;
 
   constructor(
@@ -37,22 +35,22 @@ export class CheckoutPage {
     public configuration: ConfigurationService,
     public alertCtrl  :AlertController,
     public marketcloud: MarketcloudService,
-    public form: FormBuilder
+    public formBuilder: FormBuilder
   ) {
 
     // Initial step counter
     this.step = 0;
     this.currentStep = "Address";
 
-    this.address = {
-      full_name : "John Doe",
-      country : " Italy",
-      state : "Marche",
-      city : "Ancona",
-      postal_code : "123",
-      email  :"john.doe@example.com",
-      address1 : "Fake Street"
-    };
+    this.address = this.formBuilder.group({
+      full_name: ['', Validators.required],
+      country:['', Validators.required],
+      state: ['', Validators.required],
+      city: ['', Validators.required],
+      postal_code: ['', Validators.required],
+      email:['', Validators.required],
+      address1: ['', Validators.required]
+    });
     // Available steps
     //"Address",
     //"Payment",
