@@ -12,18 +12,30 @@
     <ion-title>Categories</ion-title>
   </ion-navbar>
 </ion-header>
+<ion-content >
+  <div class="card-background-page">
+  <ion-grid >
+    <ion-row>
+      <ion-col *ngFor="let category of categories" col-6>
+      <ion-card >
+        <img src="{{category.image_url || 'https://marketcloud.azureedge.net/website-v2/logo-text-center-padding.png'}}" />
+        <ion-card-title>
+          <button ion-button large (click)=showProductsInCategory(category); color="primary">{{category.name}}</button>
+        </ion-card-title>
+      </ion-card>
+    </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
 
-<ion-content class="card-background-page">
-  <ion-card *ngFor="let category of categories">
-    <!-- <img  src="{{category.image_url || 'https://marketcloud.azureedge.net/website-v2/logo-text-center-padding.png'}}" /> -->
-    <div class="card-title">
-      <button ion-button large  (click)=showProductsInCategory(category); color="primary">{{category.name}}</button>
-    </div>
-  </ion-card>
+  <ion-list >
+      <ion-list-header>
+        <h2>Request Forms</h2>
 
-  <ion-card *ngFor="let f of forms">
-      <div class="card-title">
-        <button ion-button large  (click)=goToForm(f); color="primary">{{f.title}}</button>
-      </div>
-  </ion-card>
+        </ion-list-header>
+      <button ion-item *ngFor="let f of forms" (click)="goToForm(f)">
+        {{ f.title }}
+      </button>
+    </ion-list>
+
 </ion-content>

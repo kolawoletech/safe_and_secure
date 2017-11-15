@@ -1,31 +1,28 @@
 page-categories {
-    .card-background-page {
+  .card-background-page {
 
-          ion-card {
-            position: relative;
-            text-align: center;
-          }
+      ion-card {
+        position: relative;
+        text-align: center;
+        padding: 0px;
+      }
 
-          .card-title {
+      .card-title {
+        position: absolute;
+        top: 36%;
+        font-size: 2.0em;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+      }
 
-            top: 36%;
-            font-size: 2.0em;
-            width: 100%;
-            font-weight: bold;
-            color:purple;
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-            transition: 0.3s;
+      .card-subtitle {
+        font-size: 1.0em;
+        position: absolute;
+        top: 52%;
+        width: 100%;
+        color: #fff;
+      }
 
-            border-radius: 5px; /* 5px rounded corners */
-          }
-
-          .card-subtitle {
-            font-size: 1.0em;
-            position: absolute;
-            top: 52%;
-            width: 100%;
-            color: #fff;
-          }
-
-        }
+    }
 }
