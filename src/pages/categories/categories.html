@@ -15,10 +15,15 @@
 
 <ion-content class="card-background-page">
   <ion-card *ngFor="let category of categories">
-    <img  src="{{category.image_url || 'https://marketcloud.azureedge.net/website-v2/logo-text-center-padding.png'}}" />
+    <!-- <img  src="{{category.image_url || 'https://marketcloud.azureedge.net/website-v2/logo-text-center-padding.png'}}" /> -->
     <div class="card-title">
       <button ion-button large  (click)=showProductsInCategory(category); color="primary">{{category.name}}</button>
     </div>
-    
+  </ion-card>
+
+  <ion-card *ngFor="let f of forms">
+      <div class="card-title">
+        <button ion-button large  (click)=goToForm(f); color="primary">{{f.title}}</button>
+      </div>
   </ion-card>
 </ion-content>

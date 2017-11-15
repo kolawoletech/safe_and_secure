@@ -1,13 +1,13 @@
 page-categories {
     .card-background-page {
-        
+
           ion-card {
             position: relative;
             text-align: center;
           }
-        
+
           .card-title {
-            position: absolute;
+
             top: 36%;
             font-size: 2.0em;
             width: 100%;
@@ -18,7 +18,7 @@ page-categories {
 
             border-radius: 5px; /* 5px rounded corners */
           }
-        
+
           .card-subtitle {
             font-size: 1.0em;
             position: absolute;
@@ -26,6 +26,6 @@ page-categories {
             width: 100%;
             color: #fff;
           }
-        
+
         }
 }

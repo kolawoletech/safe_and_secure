@@ -19,8 +19,6 @@ import { PaypalPage } from '../pages/paypal/paypal';
 
 import { CleaningFormPage } from '../pages/cleaning-form/cleaning-form';
 
-import { AuthPage } from '../pages/auth/auth';
-
 
 import { MarketcloudService } from '../providers/marketcloud-service';
 import {ConfigurationService} from '../providers/configuration-service';
@@ -38,7 +36,7 @@ export class MyApp {
   // We will prefix our Storage values with a unique namespace
   // This is because if you have several apps built on this template
   // they might clash using different Marketcloud API keys.
-  // 
+  //
   // With a namespace you can have any apps you want (as long as you have unique namespace)
   // so for example set this value to the app's name
   marketcloudAppNamespace: string = 'mcIonic2';
@@ -72,23 +70,21 @@ export class MyApp {
         { title: 'Brokers', component: BrokerListPage },
         { title: 'Properties', component: PropertyListPage },
         { title: 'Cleaning', component: CleaningFormPage },
-        { title: 'Paypal', component: PaypalPage },
-        { title: 'Auth', component: AuthPage }
-        
+        { title: 'Paypal', component: PaypalPage }
       ];
 
 
-      
+
 
       // Marketcloud
-      // If we don't have a cart here, we create a cart and store the id into the 
+      // If we don't have a cart here, we create a cart and store the id into the
       // local storage
       this.storage.get(this.marketcloudAppNamespace+'_cart_id')
       .then((value) => {
 
         if (value === null){
           // If value is null then we don't have a cart_id in the storage
- 
+
           // Then we don't have a cart and we must create one
 
           this.marketcloud.client.carts.create({})
@@ -116,7 +112,7 @@ export class MyApp {
             });
 
             alert.present();
-            
+
           })
         } else {
           console.info("Using cart with id "+value);

@@ -1,3 +1,4 @@
+import { Http, HttpModule } from '@angular/http';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ModalController, LoadingController} from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup  } from '@angular/forms';
@@ -5,6 +6,7 @@ import { ConfigurationService } from '../../providers/configuration-service';
 import { MarketcloudService } from '../../providers/marketcloud-service';
 import { OrderCompleteModalPage } from '../order-complete-modal/order-complete-modal';
 import { EmailValidator } from '../../validators/email';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
 /**
@@ -19,11 +21,9 @@ import { EmailValidator } from '../../validators/email';
   templateUrl: 'checkout.html',
 })
 export class CheckoutPage {
+  data :any;
   step : number;
-  customer : any;
-
   cart : any = {items : []};
-
   currentStep : string;
   public address:any;
   braintreeNonce : string;
@@ -36,7 +36,9 @@ export class CheckoutPage {
     public configuration: ConfigurationService,
     public alertCtrl  :AlertController,
     public marketcloud: MarketcloudService,
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+    public http: Http,
+    public iab: InAppBrowser
   ) {
 
     // Initial step counter
@@ -73,8 +75,13 @@ export class CheckoutPage {
     })
 
   }
-  logForm(){
-    console.log(this.address.value)
+
+  onSubmit() {
+    console.log("Working")!
+    this.http.post('https://sandbox.payfast.co.za/eng/process', JSON.stringify(this.data))
+        .subscribe(
+
+        );
   }
 
   ionViewDidLoad() {
@@ -182,13 +189,11 @@ export class CheckoutPage {
         });
 
         loading.present();
-        console.log(this.address);
-        this.customer = this.address.value;
-        console.log(this.customer);
+
         return this.marketcloud.client.orders.create({
 
-          shipping_address : this.customer,
-          billing_address : this.customer,
+          shipping_address :this.address.value,
+          billing_address : this.address.value,
           cart_id : Number(this.configuration.get('cart_id'))
         })
         .then( (response) => {

@@ -25302,7 +25302,6 @@ page-categories .card-background-page ion-card {
 }
 
 page-categories .card-background-page .card-title {
-  position: absolute;
   top: 36%;
   font-size: 2.0em;
   width: 100%;

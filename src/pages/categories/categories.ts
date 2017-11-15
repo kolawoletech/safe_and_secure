@@ -2,9 +2,12 @@ import { Component } from '@angular/core';
 
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 
-import { MarketcloudService } from '../../providers/marketcloud-service'; 
+import { MarketcloudService } from '../../providers/marketcloud-service';
 
 import { ProductsPage } from '../products/products';
+import { CleaningFormPage } from '../cleaning-form/cleaning-form';
+import { MaintenanceFormPage } from '../maintenance-form/maintenance-form';
+import { DeliveryFormPage } from '../delivery-form/delivery-form';
 /*
   Generated class for the Categories page.
 
@@ -20,12 +23,19 @@ import { ProductsPage } from '../products/products';
 export class CategoriesPage {
 
   categories: Array<any>;
+  forms: Array<{title: string, component: any}>;
   constructor(
-      public navCtrl: NavController, 
-      public navParams: NavParams, 
+      public navCtrl: NavController,
+      public navParams: NavParams,
       private marketcloud: MarketcloudService,
       private alertCtrl: AlertController) {
 
+        this.forms = [
+          { title: 'Delivery', component: DeliveryFormPage },
+          { title: 'Cleaning', component: CleaningFormPage },
+          { title: 'Maintenance', component: MaintenanceFormPage },
+
+        ];
     marketcloud.client.categories.list()
     .then((response) => {
       this.categories = response.data;
@@ -50,5 +60,7 @@ export class CategoriesPage {
       }
     });
   }
-
+  goToForm(form){
+    this.navCtrl.push(form.component);
+  }
 }

@@ -2,7 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { PayPal } from '@ionic-native/paypal';
-
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { ProductsPage } from '../pages/products/products';
 import { CheckoutPage } from '../pages/checkout/checkout';
@@ -95,7 +95,7 @@ import { AuthPage } from '../pages/auth/auth';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConfigurationService, BraintreeProvider,
     PropertyService,
-    BrokerService, UserProvider, StorageProvider, PaypalProvider, PayfastProvider, PayPal, UtilProvider,MarketcloudService
+    BrokerService, UserProvider, StorageProvider, PaypalProvider, PayfastProvider, PayPal,InAppBrowser, UtilProvider,MarketcloudService
   ]
 })
 export class AppModule {}

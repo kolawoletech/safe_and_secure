@@ -20,12 +20,8 @@
       </ion-segment-button>
     </ion-segment>
   </div>
-
-
-
-
   <div [hidden]="currentStep !== 'Address'">
-  <form [formGroup]="address" (ngSubmit)="logForm()">
+<!--   <form [formGroup]="address" ngNoForm  target="_blank" action="https://sandbox.payfast.co.za/eng/process" method="POST">
     <ion-item>
       <ion-label fixed>Email address</ion-label>
       <ion-input type="email" placeholder="john@example.com" formControlName="email"></ion-input>
@@ -60,15 +56,35 @@
       <ion-label fixed>Address</ion-label>
       <ion-input type="text" placeholder="Evergreen terrace 123" formControlName="address1"></ion-input>
     </ion-item>
+
+
+
+      <button ion-button type="submit" [disabled]="!address.valid">Submit</button>
+  </form> -->
+  <form  ngNoForm action="https://sandbox.payfast.co.za/eng/process" method="POST">
+    <input type="hidden" name="key" value="gtKFFx" />
+    <input type="hidden" name="txnid" value="mdt24opk" />
+    <input type="hidden" name="amount" value="100" />
+    <input type="hidden" name="productinfo" value="oxygenconcentrator" />
+    <input type="hidden" name="firstname" value="test" />
+    <input type="hidden" name="email" value="test@gmail.com" />
+    <input type="hidden" name="phone" value="8152709721" />
+    <input type="hidden" name="surl" value="https://payu.herokuapp.com/success" />
+    <input type="hidden" name="Furl" value="https://payu.herokuapp.com/failure" />
+    <input type="hidden" name="Hash" value="819af9cc2783018edf68e594e1794cfa8bbf6b381f807051840024ef29c021d3962dd88f4dd77d268d1d9199ac6a2e5c4ea6e67514c8c6a1eb56c597165c8958"/>
+    <input type="submit" value="enter" style="position: absolute; left: -9999px"/>
     <button ion-button type="submit" [disabled]="!address.valid">Submit</button>
-  </form>
+  </form >
+
+<script>
+document.sendParam.submit();
+</script>
 </div>
 
 
 
 
   <form id="payment-form" method="post" action="/" [hidden]="currentStep !== 'Payment'">
-
     <label for="credit-card-number">Card number</label>
     <div id="credit-card-number" class="hosted-field">
     </div>
@@ -83,6 +99,7 @@
     <input type="submit" id="submitButton" style="visibility: hidden;">
 
   </form>
+
 
 
 

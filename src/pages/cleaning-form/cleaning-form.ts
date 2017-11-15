@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder,  Validators } from '@angular/forms';
 import { Slides } from 'ionic-angular';
 
 
-import { NavController } from 'ionic-angular';
+import { IonicPage,NavController } from 'ionic-angular';
 import { Http, Headers, Request, RequestMethod } from "@angular/http";
 
 
@@ -14,22 +14,23 @@ import { Http, Headers, Request, RequestMethod } from "@angular/http";
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
+@IonicPage()
 @Component({
   selector: 'page-cleaning-form',
   templateUrl: 'cleaning-form.html'
 })
 export class CleaningFormPage {
 
-    
+
     mailgunUrl: string;
     mailgunApiKey: string;
     recipient: string;
     @ViewChild('cleaningSlider') cleaningSlider: Slides;
- 
+
     slideOneForm: FormGroup;
     slideTwoForm: FormGroup;
     slideThreeForm: FormGroup;
- 
+
     submitAttempt: boolean = false;
 
   constructor(public http: Http, public navCtrl: NavController, public formBuilder: FormBuilder) {
@@ -44,7 +45,7 @@ export class CleaningFormPage {
           email: [''],
           phone: ['']
       });
-  
+
       this.slideTwoForm = formBuilder.group({
           address: [''],
           type: [''],
@@ -63,29 +64,29 @@ export class CleaningFormPage {
           notes: ['']
 
 
-      }); 
+      });
 
       this.slideThreeForm = formBuilder.group({
           flatRate: [''],
           firstServiceDate: ['']
-      }); 
+      });
     }
- 
+
     next(){
         this.cleaningSlider.slideNext();
     }
- 
+
     prev(){
         this.cleaningSlider.slidePrev();
     }
- 
+
     save(){
-    
+
         this.submitAttempt = true;
-    
+
         if(!this.slideOneForm.valid){
             this.cleaningSlider.slideTo(0);
-        } 
+        }
         else if(!this.slideTwoForm.valid){
             this.cleaningSlider.slideTo(1);
         }
@@ -98,14 +99,14 @@ export class CleaningFormPage {
             console.log(this.slideTwoForm.value);
             console.log(this.slideThreeForm.value);
         }
-    
+
     }
 
     send(sender: string) {
         var requestHeaders = new Headers();
-        let contentOne = JSON.stringify(this.slideOneForm.value); 
-        let contentTwo = JSON.stringify(this.slideTwoForm.value); 
-        let contentThree = JSON.stringify(this.slideThreeForm.value); 
+        let contentOne = JSON.stringify(this.slideOneForm.value);
+        let contentTwo = JSON.stringify(this.slideTwoForm.value);
+        let contentThree = JSON.stringify(this.slideThreeForm.value);
         requestHeaders.append("Authorization", "Basic " + this.mailgunApiKey);
         requestHeaders.append("Content-Type", "application/x-www-form-urlencoded");
         this.http.request(new Request({
