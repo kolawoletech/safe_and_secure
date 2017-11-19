@@ -61,7 +61,7 @@
 
       <button ion-button type="submit" [disabled]="!address.valid">Submit</button>
   </form> -->
-  <form  ngNoForm action="https://sandbox.payfast.co.za/eng/process" method="POST">
+  <form   (ngSubmit)="onSubmit()" method="POST" >
     <input type="hidden" name="key" value="gtKFFx" />
     <input type="hidden" name="txnid" value="mdt24opk" />
     <input type="hidden" name="amount" value="100" />

@@ -22,11 +22,13 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 })
 export class CheckoutPage {
   data :any;
+  browser: any;
   step : number;
   cart : any = {items : []};
   currentStep : string;
   public address:any;
-  braintreeNonce : string;
+
+
 
   constructor(
     public modalCtrl: ModalController,
@@ -44,6 +46,8 @@ export class CheckoutPage {
     // Initial step counter
     this.step = 0;
     this.currentStep = "Address";
+
+
 
     this.address = this.formBuilder.group({
       full_name: [""],
@@ -76,12 +80,15 @@ export class CheckoutPage {
 
   }
 
-  onSubmit() {
-    console.log("Working")!
-    this.http.post('https://sandbox.payfast.co.za/eng/process', JSON.stringify(this.data))
-        .subscribe(
 
-        );
+
+  onSubmit() {
+    const options= {
+    'hardwareback':'yes',
+      'location':'yes'
+
+    };
+    const browser = this.iab.create('https://sandbox.payfast.co.za/eng/process', '_self',  options);
   }
 
   ionViewDidLoad() {
