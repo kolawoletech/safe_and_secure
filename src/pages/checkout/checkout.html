@@ -61,31 +61,28 @@
 
       <button ion-button type="submit" [disabled]="!address.valid">Submit</button>
   </form> -->
-    <form action="https://sandbox.payfast.co.za/eng/process" method="POST" ngNoForm>
-      <input type="hidden" name="key" value="gtKFFx" />
-      <input type="hidden" name="txnid" value="mdt24opk" />
-      <input type="hidden" name="amount" value="100" />
-      <input type="hidden" name="productinfo" value="oxygenconcentrator" />
-      <input type="hidden" name="merchant_id" value="10000100">
-      <input type="hidden" name="merchant_key" value="46f0cd694581a">
-      <input type="hidden" name="return_url" value="https://www.yoursite.com/return">
-      <input type="hidden" name="cancel_url" value="https://www.yoursite.com/cancel">
-      <input type="hidden" name="notify_url" value="https://www.yoursite.com/notify">
-      <input type="hidden" name="firstname" value="test" />
-      <input type="hidden" name="email" value="test@gmail.com" />
-      <input type="submit" value="enter" style="position: absolute; left: -9999px" />
-      <input type="hidden" name="m_payment_id" value="01AB">
-      <input type="hidden" name="amount" value="100.00">
-      <input type="hidden" name="item_name" value="Test Item">
-      <input type="hidden" name="item_description" value="A test product">
-      <input type="hidden" name="custom_int1" value="2">
-      <input type="hidden" name="custom_str1" value="Extra order information">
-      <button ion-button type="submit" [disabled]="!address.valid">Submit</button>
-    </form>
+  <form action="https://sandbox.payfast.co.za/eng/process" method="POST" ngNoForm>
+    <input type="hidden" name="key" value="gtKFFx" />
+    <input type="hidden" name="txnid" value="mdt24opk" />
+    <input type="hidden" name="amount" value="{{cart.total}}" />
+    <input type="hidden" name="merchant_id" value="10000100">
+    <input type="hidden" name="merchant_key" value="46f0cd694581a">
+    <input type="hidden" name="return_url" value="https://www.yoursite.com/return">
+    <input type="hidden" name="cancel_url" value="https://www.yoursite.com/cancel">
+    <input type="hidden" name="notify_url" value="https://www.yoursite.com/notify">
+    <input type="hidden" name="firstname" value="test" />
+    <input type="hidden" name="email" value="test@gmail.com" />
+    <input type="hidden" name="m_payment_id" value="01AB">
+    <input type="hidden" name="item_name" value="Test Item">
+    <input type="hidden" name="item_description" value="A test product">
+    <input type="hidden" name="custom_int1" value="2">
+    <input type="hidden" name="custom_str1" value="Extra order information">
+    <button ion-button type="submit" [disabled]="!address.valid">Submit</button>
+  </form>
 
-    <script>
-      document.sendParam.submit();
-    </script>
+  <script>
+    document.sendParam.submit();
+  </script>
   </div>
 
 
