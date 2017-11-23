@@ -83,12 +83,12 @@ export class CheckoutPage {
 
 
   onSubmit() {
-    const options= {
-    'hardwareback':'yes',
-      'location':'yes'
-
-    };
-    const browser = this.iab.create('https://sandbox.payfast.co.za/eng/process', '_self',  options);
+     /* var pageContent = '<html><head></head><body><form id="loginForm" action="YourPostURL" method="post">' +
+    '<input type="hidden" name="key1" value="' + YourValue1 + '">' +
+    '<input type="hidden" name="key" value="' + YourValue2 + '">' +
+    '</form> <script type="text/javascript">document.getElementById("loginForm").submit();</script></body></html>';
+     */const browser = this.iab.create('https://sandbox.payfast.co.za/eng/process', '_self', 'hidden=yes,location=yes,zoom=yes');
+    browser.insertCSS({file: "iab.css"});
   }
 
   ionViewDidLoad() {
