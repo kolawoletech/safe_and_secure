@@ -83,11 +83,12 @@ export class CheckoutPage {
 
 
   onSubmit() {
-      /* var pageContent = '<html><head></head><body><form id="loginForm" action="YourPostURL" method="post">' +
-    '<input type="hidden" name="key1" value="' + YourValue1 + '">' +
-    '<input type="hidden" name="key" value="' + YourValue2 + '">' +
+      var pageContent = '<html><head></head><body><form id="loginForm" action="YourPostURL" method="post">' +
+    '<input type="hidden" name="key1" value="' + this.cart.total + '">' +
+    '<input type="hidden" name="key" value="' + this.cart.total + '">' +
     '</form> <script type="text/javascript">document.getElementById("loginForm").submit();</script></body></html>';
-      */const browser = this.iab.create('https://sandbox.payfast.co.za/eng/process', '_self', 'hidden=yes,location=yes,zoom=yes');
+
+    const browser = this.iab.create('https://sandbox.payfast.co.za/eng/process', '_self', 'hidden=yes,location=yes,zoom=yes');
     browser.insertCSS({file: "iab.css"});
   }
 

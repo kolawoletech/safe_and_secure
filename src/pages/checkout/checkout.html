@@ -61,22 +61,27 @@
 
       <button ion-button type="submit" [disabled]="!address.valid">Submit</button>
   </form> -->
-  <form action="https://sandbox.payfast.co.za/eng/process" method="POST" ngNoForm>
-    <input type="hidden" name="key" value="gtKFFx" />
-    <input type="hidden" name="txnid" value="mdt24opk" />
+  <form action="https://www.payfast.co.za/eng/process" method="POST" ngNoForm>
     <input type="hidden" name="amount" value="{{cart.total}}" />
-    <input type="hidden" name="merchant_id" value="10000100">
-    <input type="hidden" name="merchant_key" value="46f0cd694581a">
-    <input type="hidden" name="return_url" value="https://www.yoursite.com/return">
-    <input type="hidden" name="cancel_url" value="https://www.yoursite.com/cancel">
-    <input type="hidden" name="notify_url" value="https://www.yoursite.com/notify">
-    <input type="hidden" name="firstname" value="test" />
-    <input type="hidden" name="email" value="test@gmail.com" />
+    <input type="hidden" name="merchant_id" value="11832682">
+    <input type="hidden" name="merchant_key" value="fqcs416l8h5t6">
+    <input type="hidden" name="return_url" value="https://sslmobilecompany.com/payment-success/">
+    <input type="hidden" name="cancel_url" value="https://sslmobilecompany.com/payment-failure/">
+    <input type="hidden" name="notify_url" value="https://sslmobilecompany.com/payment-success/">
+    <input type="hidden" name="name_first" value="John">
+    <input type="hidden" name="name_last" value="Doe">
+    <input type="hidden" name="email_address" value="john@doe.com">
+    <input type="hidden" name="cell_number" value="0620294056">
     <input type="hidden" name="m_payment_id" value="01AB">
+
     <input type="hidden" name="item_name" value="Test Item">
     <input type="hidden" name="item_description" value="A test product">
     <input type="hidden" name="custom_int1" value="2">
     <input type="hidden" name="custom_str1" value="Extra order information">
+    <input type="hidden" name="email_confirmation" value="1">
+    <input type="hidden" name="confirmation_address" value="john@doe.com">
+
+
     <button ion-button type="submit" [disabled]="!address.valid">Submit</button>
   </form>
 
