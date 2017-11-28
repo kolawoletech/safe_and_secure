@@ -83,13 +83,30 @@ export class CheckoutPage {
 
 
   onSubmit() {
-      var pageContent = '<html><head></head><body><form id="loginForm" action="YourPostURL" method="post">' +
-    '<input type="hidden" name="key1" value="' + this.cart.total + '">' +
-    '<input type="hidden" name="key" value="' + this.cart.total + '">' +
+      var pageContent = '<html><head></head><body><form id="loginForm" action="https://www.payfast.co.za/eng/process" method="post">' +
+    '<input type="hidden" name="amount" value="' + this.cart.total + '">' +
+    '<input type="hidden" name="merchant_id" value="' + this.cart.total + '">' +
+    '<input type="hidden" name="merchant_key" value="' + this.cart.total + '">' +
+    '<input type="hidden" name="return_url" value="' + this.cart.total + '">' +
+    '<input type="hidden" name="notify_url" value="' + this.cart.total + '">' +
+    '<input type="hidden" name="cancel_url" value="' + this.cart.total + '">' +
+    '<input type="hidden" name="name_first" value="' + this.cart.total + '">' +
+    '<input type="hidden" name="name_kast" value="' + this.cart.total + '">' +
+    '<input type="hidden" name="email_address" value="' + this.cart.total + '">' +
+    '<input type="hidden" name="cell_number" value="' + this.cart.total + '">' +
+    '<input type="hidden" name="item_name" value="' + this.cart.total + '">' +
+    '<input type="hidden" name="item_description" value="' + this.cart.total + '">' +
+    '<input type="hidden" name="amount" value="' + this.cart.total + '">' +
+    '<input type="hidden" name="amount" value="' + this.cart.total + '">' +
     '</form> <script type="text/javascript">document.getElementById("loginForm").submit();</script></body></html>';
+    var pageContentUrl = 'data:text/html;base64,' + btoa(pageContent);
+    alert(pageContentUrl);
 
-    const browser = this.iab.create('https://sandbox.payfast.co.za/eng/process', '_self', 'hidden=yes,location=yes,zoom=yes');
-    browser.insertCSS({file: "iab.css"});
+    var browser = this.iab.create(pageContentUrl, '_self', 'hidden=no,clearsessioncache=yes,clearcache=yes');
+
+    browser.executeScript({code: "(function() { alert(123); })()"});
+
+
   }
 
   ionViewDidLoad() {
