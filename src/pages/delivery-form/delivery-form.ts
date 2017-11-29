@@ -41,33 +41,26 @@ constructor(public http: Http, public navCtrl: NavController, public formBuilder
     this.slideOneForm = formBuilder.group({
         firstName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
         lastName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
-        email: [''],
-        phone: ['']
+        email: ['',  Validators.required],
+        phone: ['',  Validators.required]
     });
 
     this.slideTwoForm = formBuilder.group({
-        address: [''],
-        type: [''],
-        frequency: [''],
-        numberOfBedroomsDomestic: [''],
-        numberOfBathroomsDomestic: [''],
-        numberOfKitchensDomestic: [''],
-        numberOfOtherRoomsDomestic: [''],
-        numberOfLevelsDomestic: [''],
-
-        numberOfRoomsOffice: [''],
-        numberOfBathroomsOffice: [''],
-        numberOfKitchensOffice: [''],
-        numberOfLevelsOffice: [''],
-
-        notes: ['']
-
+        address: ['',  Validators.required],
+        type: ['',  Validators.required],
+        frequency: ['',  Validators.required],
+        numberOfRooms: ['',  Validators.required],
+        numberOfBathrooms: ['',  Validators.required],
+        numberOfKitchens: ['',  Validators.required],
+        numberOfOtherRooms: ['', Validators.required],
+        numberOfLevels: ['', Validators.required]
 
     });
 
     this.slideThreeForm = formBuilder.group({
         flatRate: [''],
-        firstServiceDate: ['']
+        firstServiceDate: [''],
+        notes: ['']
     });
   }
 
@@ -84,13 +77,13 @@ constructor(public http: Http, public navCtrl: NavController, public formBuilder
       this.submitAttempt = true;
 
       if(!this.slideOneForm.valid){
-          this.deliverySlider.slideTo(0);
-      }
-      else if(!this.slideTwoForm.valid){
           this.deliverySlider.slideTo(1);
       }
-      else if(!this.slideThreeForm.valid){
+      else if(!this.slideTwoForm.valid){
           this.deliverySlider.slideTo(2);
+      }
+      else if(!this.slideThreeForm.valid){
+          this.deliverySlider.slideTo(3);
       }
       else {
           console.log("success!")

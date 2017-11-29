@@ -31,7 +31,7 @@ export class CategoriesPage {
       private alertCtrl: AlertController) {
 
         this.forms = [
-          { title: 'Delivery', component: DeliveryFormPage },
+          { title: 'Bring It Home', component: DeliveryFormPage },
           { title: 'Cleaning', component: CleaningFormPage },
           { title: 'Maintenance', component: MaintenanceFormPage },
 
