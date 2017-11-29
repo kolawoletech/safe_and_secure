@@ -95,10 +95,27 @@ constructor(public http: Http, public navCtrl: NavController, public formBuilder
   }
 
   send(sender: string) {
+    this.submitAttempt = true;
+
+    if(!this.slideOneForm.valid){
+        this.deliverySlider.slideTo(1);
+    }
+    else if(!this.slideTwoForm.valid){
+        this.deliverySlider.slideTo(2);
+    }
+    else if(!this.slideThreeForm.valid){
+        this.deliverySlider.slideTo(3);
+    }
+    else {
+        console.log("success!")
+        console.log(this.slideOneForm.value);
+        console.log(this.slideTwoForm.value);
+        console.log(this.slideThreeForm.value);
+    }
       var requestHeaders = new Headers();
-      let contentOne = JSON.stringify(this.slideOneForm.value);
-      let contentTwo = JSON.stringify(this.slideTwoForm.value);
-      let contentThree = JSON.stringify(this.slideThreeForm.value);
+      let contentOne = this.slideOneForm.value;
+      let contentTwo = this.slideTwoForm.value;
+      let contentThree = this.slideThreeForm.value;
       requestHeaders.append("Authorization", "Basic " + this.mailgunApiKey);
       requestHeaders.append("Content-Type", "application/x-www-form-urlencoded");
       this.http.request(new Request({
