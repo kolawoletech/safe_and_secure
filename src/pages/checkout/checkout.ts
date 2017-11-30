@@ -28,8 +28,6 @@ export class CheckoutPage {
   currentStep : string;
   public address:any;
 
-
-
   constructor(
     public modalCtrl: ModalController,
     public loadingCtrl: LoadingController,

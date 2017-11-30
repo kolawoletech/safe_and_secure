@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, AlertController } from 'ionic-angular';
+import { Nav, Platform, AlertController, ModalController } from 'ionic-angular';
 import { StatusBar} from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -13,14 +13,20 @@ import { CleaningFormPage } from '../pages/cleaning-form/cleaning-form';
 import { DeliveryFormPage } from '../pages/delivery-form/delivery-form';
 import { MaintenanceFormPage } from '../pages/maintenance-form/maintenance-form';
 import { SupportPage } from '../pages/support/support';
+import { AppRatingsModalPage } from '../pages/app-ratings-modal/app-ratings-modal';
+
 import { MarketcloudService } from '../providers/marketcloud-service';
 import { ConfigurationService } from '../providers/configuration-service';
+import { RateService } from '../providers/rate-service/rate-service';
+
 
 @Component({
   templateUrl: 'app.html',
-  providers: [MarketcloudService, SplashScreen, StatusBar],
+  providers: [MarketcloudService, SplashScreen, StatusBar, RateService],
 })
 export class MyApp {
+  myModal: any;
+
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = CategoriesPage;
@@ -37,13 +43,14 @@ export class MyApp {
   helpMenus: Array<{title: string, component: any}>;
   requestForms: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform,
+  constructor(public modalCtrl: ModalController,public platform: Platform,
               private configuration: ConfigurationService,
               private marketcloud: MarketcloudService,
               public storage: Storage,
               public splashScreen: SplashScreen,
               public statusBar: StatusBar,
-              private alertCtrl: AlertController) {
+              private alertCtrl: AlertController,
+              private rateService: RateService) {
 
                 this.initializeApp();
   }
@@ -52,6 +59,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
@@ -135,5 +143,11 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(help.component);
+  }
+
+  rateApp() {
+    let myModal = this.modalCtrl.create(AppRatingsModalPage);
+    myModal.onDidDismiss(() => {this.rateService.appRate.promptForRating(false); console.log('dismiss')})
+    myModal.present();
   }
 }

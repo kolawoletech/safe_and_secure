@@ -1,9 +1,10 @@
+
 import { SupportPage } from './../pages/support/support';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-
+import { AppRatingsModalPage } from '../pages/app-ratings-modal/app-ratings-modal';
 import { ProductsPage } from '../pages/products/products';
 import { CheckoutPage } from '../pages/checkout/checkout';
 import { CategoriesPage } from '../pages/categories/categories';
@@ -30,6 +31,8 @@ import { StorageProvider } from '../providers/storage-provider/storage-provider'
 import { UtilProvider } from '../providers/util-provider/util-provider';
 
 import { MarketcloudService } from '../providers/marketcloud-service';
+import { RateService } from '../providers/rate-service/rate-service';
+
 
 @NgModule({
   declarations: [
@@ -49,7 +52,8 @@ import { MarketcloudService } from '../providers/marketcloud-service';
     DeliveryFormPage,
     CleaningFormPage,
     MaintenanceFormPage,
-    SupportPage
+    SupportPage,
+    AppRatingsModalPage
   ],
   imports: [
     BrowserModule,
@@ -75,13 +79,14 @@ import { MarketcloudService } from '../providers/marketcloud-service';
     DeliveryFormPage,
     CleaningFormPage,
     MaintenanceFormPage,
-    SupportPage
+    SupportPage,
+    AppRatingsModalPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConfigurationService,
     PropertyService,
-    BrokerService, StorageProvider, InAppBrowser, UtilProvider,MarketcloudService
+    BrokerService, StorageProvider, InAppBrowser, UtilProvider,MarketcloudService, RateService
   ]
 })
 export class AppModule {}
