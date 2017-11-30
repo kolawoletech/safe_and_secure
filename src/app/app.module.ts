@@ -1,3 +1,4 @@
+import { SupportPage } from './../pages/support/support';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -31,13 +32,9 @@ import { PropertyService } from '../providers/property-service-mock';
 import { BrokerService } from '../providers/broker-service-mock';
 import { UserProvider } from '../providers/user-provider/user-provider';
 import { StorageProvider } from '../providers/storage-provider/storage-provider';
-import { PayfastProvider } from '../providers/payfast/payfast';
-
 import { UtilProvider } from '../providers/util-provider/util-provider';
 
 import { MarketcloudService } from '../providers/marketcloud-service';
-import { AuthPage } from '../pages/auth/auth';
-
 
 @NgModule({
   declarations: [
@@ -57,7 +54,7 @@ import { AuthPage } from '../pages/auth/auth';
     DeliveryFormPage,
     CleaningFormPage,
     MaintenanceFormPage,
-    AuthPage
+    SupportPage
   ],
   imports: [
     BrowserModule,
@@ -83,7 +80,7 @@ import { AuthPage } from '../pages/auth/auth';
     DeliveryFormPage,
     CleaningFormPage,
     MaintenanceFormPage,
-    AuthPage
+    SupportPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

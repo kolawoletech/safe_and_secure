@@ -7,7 +7,6 @@ import { SupportPage } from './support';
     SupportPage,
   ],
   imports: [
-    IonicModule.forChild(SupportPage),
   ],
   exports: [
     SupportPage
