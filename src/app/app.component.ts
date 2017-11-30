@@ -64,7 +64,8 @@ export class MyApp {
       ];
 
       this.helpMenus = [
-        { title: 'Support', component: SupportPage },
+        { title: 'Support/Feedback', component: SupportPage },
+
       ];
 
       this.requestForms = [
