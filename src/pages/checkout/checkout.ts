@@ -1,4 +1,4 @@
-import { Http, HttpModule } from '@angular/http';
+import { Http } from '@angular/http';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ModalController, LoadingController} from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup  } from '@angular/forms';

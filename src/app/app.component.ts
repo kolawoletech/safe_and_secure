@@ -5,24 +5,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Storage } from '@ionic/storage';
 
-
-
 import { CartPage } from '../pages/cart/cart';
 import { ProductsPage } from '../pages/products/products';
 import { CategoriesPage } from '../pages/categories/categories';
-
-import { RealEstatePage } from '../pages/real-estate/real-estate';
 import { PropertyListPage } from '../pages/property-list/property-list';
-import { BrokerListPage } from '../pages/broker-list/broker-list';
-
-
-
 import { CleaningFormPage } from '../pages/cleaning-form/cleaning-form';
-
-
 import { MarketcloudService } from '../providers/marketcloud-service';
 import {ConfigurationService} from '../providers/configuration-service';
-
 
 @Component({
   templateUrl: 'app.html',
@@ -69,9 +58,6 @@ export class MyApp {
         { title: 'Real Estate', component: PropertyListPage },
 
       ];
-
-
-
 
       // Marketcloud
       // If we don't have a cart here, we create a cart and store the id into the

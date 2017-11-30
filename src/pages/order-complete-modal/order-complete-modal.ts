@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { App, ViewController } from 'ionic-angular';
-
-import { ProductsPage } from '../products/products';
 /**
  * Generated class for the OrderCompleteModalPage page.
  *

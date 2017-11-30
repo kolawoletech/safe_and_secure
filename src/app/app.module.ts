@@ -26,8 +26,6 @@ import { ConfigurationService } from '../providers/configuration-service';
 import { IonicStorageModule } from '@ionic/storage'
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import { BraintreeProvider } from '../providers/braintree/braintree';
-
 import { PropertyService } from '../providers/property-service-mock';
 import { BrokerService } from '../providers/broker-service-mock';
 import { UserProvider } from '../providers/user-provider/user-provider';
@@ -84,7 +82,7 @@ import { MarketcloudService } from '../providers/marketcloud-service';
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ConfigurationService, BraintreeProvider,
+    ConfigurationService,
     PropertyService,
     BrokerService, UserProvider, StorageProvider, InAppBrowser, UtilProvider,MarketcloudService
   ]
