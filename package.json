@@ -20,12 +20,9 @@
         "@angular/platform-browser-dynamic": "4.0.0",
         "@ionic-native/core": "^3.4.2",
         "@ionic-native/in-app-browser": "^4.4.0",
-        "@ionic-native/paypal": "^4.3.0",
         "@ionic-native/splash-screen": "3.4.2",
         "@ionic-native/status-bar": "3.4.2",
         "@ionic/storage": "2.0.1",
-        "card.io.cordova.mobilesdk": "^2.1.0",
-        "com.paypal.cordova.mobilesdk": "^3.5.0",
         "cordova-android": "^6.2.3",
         "cordova-plugin-console": "^1.0.5",
         "cordova-plugin-device": "^1.1.4",
@@ -65,7 +62,6 @@
             "cordova-plugin-statusbar": {},
             "cordova-plugin-whitelist": {},
             "ionic-plugin-keyboard": {},
-            "com.paypal.cordova.mobilesdk": {},
             "cordova-plugin-inappbrowser": {}
         },
         "platforms": [

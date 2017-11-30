@@ -15,7 +15,7 @@ import { RealEstatePage } from '../pages/real-estate/real-estate';
 import { PropertyListPage } from '../pages/property-list/property-list';
 import { BrokerListPage } from '../pages/broker-list/broker-list';
 
-import { PaypalPage } from '../pages/paypal/paypal';
+
 
 import { CleaningFormPage } from '../pages/cleaning-form/cleaning-form';
 
@@ -66,11 +66,8 @@ export class MyApp {
         { title: 'Home', component: ProductsPage },
         { title: 'Categories', component: CategoriesPage },
         { title: 'Cart', component: CartPage },
-        { title: 'Real-Estate', component: RealEstatePage },
-        { title: 'Brokers', component: BrokerListPage },
-        { title: 'Properties', component: PropertyListPage },
-        { title: 'Cleaning', component: CleaningFormPage },
-        { title: 'Paypal', component: PaypalPage }
+        { title: 'Real Estate', component: PropertyListPage },
+
       ];
 
 

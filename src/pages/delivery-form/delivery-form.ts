@@ -113,15 +113,25 @@ constructor(public http: Http, public navCtrl: NavController, public formBuilder
         console.log(this.slideThreeForm.value);
     }
       var requestHeaders = new Headers();
-      let contentOne = this.slideOneForm.value;
-      let contentTwo = this.slideTwoForm.value;
-      let contentThree = this.slideThreeForm.value;
+      let contentOne = JSON.stringify(this.slideOneForm.value);
+      let contentTwo = JSON.stringify(this.slideTwoForm.value);
+      let contentThree = JSON.stringify(this.slideThreeForm.value);
       requestHeaders.append("Authorization", "Basic " + this.mailgunApiKey);
       requestHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+      requestHeaders.append("Accept", "/");
+      requestHeaders.append("Access-Control-Allow-Credentials", "true");
+      requestHeaders.append("Upgrade-Insecure-Requests","1");
+      requestHeaders.append("withCredentials","true");
+      requestHeaders.append("Access-Control-Allow-Origin","http://localhost:8100");
+      requestHeaders.append("Access-Control-Allow-Credentials", "true");
+      requestHeaders.append("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+      requestHeaders.append("Access-Control-Allow-Headers", "Content-Type,Authorization,Upgrade-Insecure-Requests");
+
+
       this.http.request(new Request({
           method: RequestMethod.Post,
           url: "https://api.mailgun.net/v3/" + this.mailgunUrl + "/messages",
-          body: "from="+sender+"+&to=" + this.recipient + "&subject=" + "Delivery Request" + "&text=" + contentOne +"<br>"+ contentTwo +"<br>"+ contentThree,
+          body: "from="+sender+"+&to=" + this.recipient + "&subject=" + "Delivery Request" + "&text=" + contentOne + contentTwo + contentThree,
           headers: requestHeaders
       }))
 

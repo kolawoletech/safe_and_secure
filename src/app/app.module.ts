@@ -1,7 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { PayPal } from '@ionic-native/paypal';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { ProductsPage } from '../pages/products/products';
@@ -32,12 +31,9 @@ import { PropertyService } from '../providers/property-service-mock';
 import { BrokerService } from '../providers/broker-service-mock';
 import { UserProvider } from '../providers/user-provider/user-provider';
 import { StorageProvider } from '../providers/storage-provider/storage-provider';
-import { PaypalProvider } from '../providers/paypal/paypal';
 import { PayfastProvider } from '../providers/payfast/payfast';
 
 import { UtilProvider } from '../providers/util-provider/util-provider';
-
-import { PayPalModule } from '../pages/paypal/paypal.module';
 
 import { MarketcloudService } from '../providers/marketcloud-service';
 import { AuthPage } from '../pages/auth/auth';
@@ -66,8 +62,6 @@ import { AuthPage } from '../pages/auth/auth';
   imports: [
     BrowserModule,
     HttpModule,
-    PayPalModule,
-
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
   ],
@@ -95,7 +89,7 @@ import { AuthPage } from '../pages/auth/auth';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConfigurationService, BraintreeProvider,
     PropertyService,
-    BrokerService, UserProvider, StorageProvider, PaypalProvider, PayfastProvider, PayPal,InAppBrowser, UtilProvider,MarketcloudService
+    BrokerService, UserProvider, StorageProvider, InAppBrowser, UtilProvider,MarketcloudService
   ]
 })
 export class AppModule {}

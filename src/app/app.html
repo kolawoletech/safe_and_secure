@@ -7,10 +7,22 @@
 
   <ion-content>
     <ion-list>
+        <ion-list-header>
+           Main Menu
+          </ion-list-header>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
     </ion-list>
+    <ion-list>
+        <ion-list-header>
+          Help
+        </ion-list-header>
+        <button menuClose ion-item >
+          <ion-icon item-left></ion-icon>
+         Test
+        </button>
+      </ion-list>
   </ion-content>
 
 </ion-menu>
