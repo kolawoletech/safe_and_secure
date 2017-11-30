@@ -147,7 +147,7 @@ export class MyApp {
 
   rateApp() {
     let myModal = this.modalCtrl.create(AppRatingsModalPage);
-    myModal.onDidDismiss(() => {this.rateService.appRate.promptForRating(false); console.log('dismiss')})
+    myModal.onDidDismiss(() => {this.rateService.appRate.promptForRating(true); console.log('dismiss')})
     myModal.present();
   }
 }
