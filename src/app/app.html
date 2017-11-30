@@ -1,28 +1,37 @@
-<ion-menu color="primary" [content]="content">
+<ion-menu  [content]="content">
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar color="secondary">
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
     <ion-list>
-        <ion-list-header>
-           Main Menu
+        <ion-list-header text-center>
+          <h1><strong>Menu</strong></h1>
           </ion-list-header>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
     </ion-list>
     <ion-list>
-        <ion-list-header>
-          Help
+        <ion-list-header text-center>
+          <h1><strong>Request</strong></h1>
         </ion-list-header>
-        <button menuClose ion-item >
-          <ion-icon item-left></ion-icon>
-         Test
+        <button menuClose ion-item *ngFor="let r of requestForms" (click)="openRequestForm(r)">
+
+          {{r.title}}
         </button>
       </ion-list>
+      <ion-list>
+          <ion-list-header text-center>
+            <h1><strong>Request</strong></h1>
+          </ion-list-header>
+          <button menuClose ion-item *ngFor="let h of helpMenus" (click)="openHelp(h)">
+
+            {{h.title}}
+          </button>
+        </ion-list>
   </ion-content>
 
 </ion-menu>

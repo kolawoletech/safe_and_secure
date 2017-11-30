@@ -10,8 +10,11 @@ import { ProductsPage } from '../pages/products/products';
 import { CategoriesPage } from '../pages/categories/categories';
 import { PropertyListPage } from '../pages/property-list/property-list';
 import { CleaningFormPage } from '../pages/cleaning-form/cleaning-form';
+import { DeliveryFormPage } from '../pages/delivery-form/delivery-form';
+import { MaintenanceFormPage } from '../pages/maintenance-form/maintenance-form';
+import { SupportPage } from '../pages/support/support';
 import { MarketcloudService } from '../providers/marketcloud-service';
-import {ConfigurationService} from '../providers/configuration-service';
+import { ConfigurationService } from '../providers/configuration-service';
 
 @Component({
   templateUrl: 'app.html',
@@ -31,6 +34,8 @@ export class MyApp {
   marketcloudAppNamespace: string = 'mcIonic2';
 
   pages: Array<{title: string, component: any}>;
+  helpMenus: Array<{title: string, component: any}>;
+  requestForms: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform,
               private configuration: ConfigurationService,
@@ -55,10 +60,18 @@ export class MyApp {
         { title: 'Home', component: ProductsPage },
         { title: 'Categories', component: CategoriesPage },
         { title: 'Cart', component: CartPage },
-        { title: 'Real Estate', component: PropertyListPage },
-
+        { title: 'Real Estate', component: PropertyListPage }
       ];
 
+      this.helpMenus = [
+        { title: 'Support', component: SupportPage },
+      ];
+
+      this.requestForms = [
+        { title: 'Delivery', component: DeliveryFormPage },
+        { title: 'Cleaning', component: CleaningFormPage },
+        { title: 'Maintenance', component: MaintenanceFormPage }
+      ];
       // Marketcloud
       // If we don't have a cart here, we create a cart and store the id into the
       // local storage
@@ -109,5 +122,17 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  openRequestForm(requestForm) {
+    // Reset the content nav to have just this page
+    // we wouldn't want the back button to show in this scenario
+    this.nav.setRoot(requestForm.component);
+  }
+
+  openHelp(help) {
+    // Reset the content nav to have just this page
+    // we wouldn't want the back button to show in this scenario
+    this.nav.setRoot(help.component);
   }
 }

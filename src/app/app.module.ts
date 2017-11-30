@@ -17,18 +17,15 @@ import { FavoriteListPage } from '../pages/favorite-list/favorite-list';
 import { PropertyDetailPage } from '../pages/property-detail/property-detail';
 import { PropertyListPage } from '../pages/property-list/property-list';
 import { RealEstatePage } from '../pages/real-estate/real-estate';
-
 import { DeliveryFormPage } from '../pages/delivery-form/delivery-form';
 import { MaintenanceFormPage } from '../pages/maintenance-form/maintenance-form';
 import { CleaningFormPage } from '../pages/cleaning-form/cleaning-form';
-
 import { ConfigurationService } from '../providers/configuration-service';
 import { IonicStorageModule } from '@ionic/storage'
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { PropertyService } from '../providers/property-service-mock';
 import { BrokerService } from '../providers/broker-service-mock';
-import { UserProvider } from '../providers/user-provider/user-provider';
 import { StorageProvider } from '../providers/storage-provider/storage-provider';
 import { UtilProvider } from '../providers/util-provider/util-provider';
 
@@ -84,7 +81,7 @@ import { MarketcloudService } from '../providers/marketcloud-service';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConfigurationService,
     PropertyService,
-    BrokerService, UserProvider, StorageProvider, InAppBrowser, UtilProvider,MarketcloudService
+    BrokerService, StorageProvider, InAppBrowser, UtilProvider,MarketcloudService
   ]
 })
 export class AppModule {}
