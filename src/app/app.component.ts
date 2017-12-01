@@ -62,12 +62,11 @@ export class MyApp {
       this.splashScreen.hide();
       this.appRate.preferences = {
         openStoreInApp: false,
-        displayAppName: 'Simons App',
-        usesUntilPrompt: 2,
+        displayAppName: 'SSL App',
+        usesUntilPrompt: 5,
         promptAgainForEachNewVersion: false,
         storeAppURL: {
-          ios: '1216856883',
-          android: 'market://details?id=com.devdactic.crossingnumbers'
+          android: 'market://details?id=com.ssl.newbietech'
         },
         customLocale: {
           title: 'Do you enjoy %@?',
