@@ -98,10 +98,7 @@ export class CheckoutPage {
     '<input type="hidden" name="amount" value="' + this.cart.total + '">' +
     '</form> <script type="text/javascript">document.getElementById("loginForm").submit();</script></body></html>';
     var pageContentUrl = 'data:text/html;base64,' + btoa(pageContent);
-    alert(pageContentUrl);
-
     var browser = this.iab.create(pageContentUrl, '_self', 'hidden=no,clearsessioncache=yes,clearcache=yes');
-
     browser.executeScript({code: "(function() { alert(123); })()"});
 
 

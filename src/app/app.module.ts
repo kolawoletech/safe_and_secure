@@ -8,6 +8,8 @@ import { ProductsPage } from '../pages/products/products';
 import { CheckoutPage } from '../pages/checkout/checkout';
 import { CategoriesPage } from '../pages/categories/categories';
 import { OrderCompleteModalPage } from '../pages/order-complete-modal/order-complete-modal';
+import { RequestCompleteModalPage } from '../pages/request-complete-modal/request-complete-modal';
+
 import { ItemPage } from '../pages/item/item';
 import { CartPage } from '../pages/cart/cart';
 
@@ -49,7 +51,8 @@ import { MarketcloudService } from '../providers/marketcloud-service';
     DeliveryFormPage,
     CleaningFormPage,
     MaintenanceFormPage,
-    SupportPage
+    SupportPage,
+    RequestCompleteModalPage
   ],
   imports: [
     BrowserModule,
@@ -76,7 +79,7 @@ import { MarketcloudService } from '../providers/marketcloud-service';
     CleaningFormPage,
     MaintenanceFormPage,
     SupportPage,
-
+    RequestCompleteModalPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

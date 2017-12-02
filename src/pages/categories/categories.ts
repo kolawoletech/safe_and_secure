@@ -6,7 +6,6 @@ import { MarketcloudService } from '../../providers/marketcloud-service';
 
 import { ProductsPage } from '../products/products';
 import { CleaningFormPage } from '../cleaning-form/cleaning-form';
-import { MaintenanceFormPage } from '../maintenance-form/maintenance-form';
 import { DeliveryFormPage } from '../delivery-form/delivery-form';
 /*
   Generated class for the Categories page.
@@ -33,7 +32,7 @@ export class CategoriesPage {
         this.forms = [
           { title: 'Bring It Home', component: DeliveryFormPage },
           { title: 'Cleaning', component: CleaningFormPage },
-          { title: 'Maintenance', component: MaintenanceFormPage },
+          //{ title: 'Maintenance', component: MaintenanceFormPage },
 
         ];
     marketcloud.client.categories.list()

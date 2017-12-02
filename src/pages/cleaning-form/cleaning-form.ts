@@ -2,8 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder,  Validators } from '@angular/forms';
 import { Slides } from 'ionic-angular';
 
+import { RequestCompleteModalPage } from '../request-complete-modal/request-complete-modal';
 
-import { IonicPage,NavController } from 'ionic-angular';
+import { IonicPage,NavController, ModalController } from 'ionic-angular';
 import { Http, Headers, Request, RequestMethod } from "@angular/http";
 
 
@@ -33,7 +34,7 @@ export class CleaningFormPage {
 
     submitAttempt: boolean = false;
 
-  constructor(public http: Http, public navCtrl: NavController, public formBuilder: FormBuilder) {
+  constructor(public http: Http, public navCtrl: NavController, public formBuilder: FormBuilder, public modalCtrl: ModalController) {
     this.http = http;
     this.mailgunUrl = "mg.sslmobilecompany.com";
     this.mailgunApiKey = window.btoa("api:key-e7cc4625ddf17e80d6c105cae11aaa18");
@@ -109,6 +110,15 @@ export class CleaningFormPage {
         let contentThree = JSON.stringify(this.slideThreeForm.value);
         requestHeaders.append("Authorization", "Basic " + this.mailgunApiKey);
         requestHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+        requestHeaders.append("Accept", "/");
+        requestHeaders.append("Access-Control-Allow-Credentials", "true");
+        requestHeaders.append("Upgrade-Insecure-Requests","1");
+        requestHeaders.append("withCredentials","true");
+        requestHeaders.append("Access-Control-Allow-Origin","http://localhost:8100");
+        requestHeaders.append("Access-Control-Allow-Credentials", "true");
+        requestHeaders.append("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        requestHeaders.append("Access-Control-Allow-Headers", "Content-Type,Authorization,Upgrade-Insecure-Requests");
+
         this.http.request(new Request({
             method: RequestMethod.Post,
             url: "https://api.mailgun.net/v3/" + this.mailgunUrl + "/messages",
@@ -116,8 +126,20 @@ export class CleaningFormPage {
             headers: requestHeaders
         }))
 
+            // The modal will show "Order complete"
+
+
         .subscribe(success => {
             console.log("SUCCESS -> " + JSON.stringify(success));
+            let myModal = this.modalCtrl.create(RequestCompleteModalPage);
+            this.navCtrl.popToRoot()
+            .then( () => {
+              myModal.present();
+            })
+            .catch( (error) => {
+              console.log("An error has occurred while navigating back to the root view",error)
+            })
+
         }, error => {
             console.log("ERROR -> " + JSON.stringify(error));
         });

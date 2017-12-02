@@ -1,11 +1,11 @@
 <ion-header>
   <ion-navbar primary>
- 
+
     <button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      Cleaning Services Forms
+      Cleaning Services Request
     </ion-title>
     <ion-buttons start>
       <button ion-button icon-left (click)="prev()"><ion-icon name="arrow-back"></ion-icon> Prev</button>
@@ -188,13 +188,13 @@
       </ion-list>
 
       <button ion-button full color="primary" (click)="save()">Create Account!</button>
-      
+
     </ion-slide>
     <ion-slide>
 
       <ion-list no-lines>
 
-        <form [formGroup]="slideThreeForm"> 
+        <form [formGroup]="slideThreeForm">
           <ion-item>
             <ion-label floating>Date and time of first service</ion-label>
             <ion-datetime formControlName="firstServiceDate" displayFormat="DD/MM/YYYY"></ion-datetime>

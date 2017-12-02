@@ -1,9 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder,  Validators } from '@angular/forms';
 import { Slides } from 'ionic-angular';
-
-
-import { IonicPage, NavController } from 'ionic-angular';
+import { RequestCompleteModalPage } from '../request-complete-modal/request-complete-modal';
+import { IonicPage,NavController, ModalController } from 'ionic-angular';
 import { Http, Headers, Request, RequestMethod } from "@angular/http";
 
 /**
@@ -32,7 +31,7 @@ export class DeliveryFormPage {
 
   submitAttempt: boolean = false;
 
-constructor(public http: Http, public navCtrl: NavController, public formBuilder: FormBuilder) {
+constructor(public http: Http, public navCtrl: NavController, public formBuilder: FormBuilder, public modalCtrl: ModalController) {
   this.http = http;
   this.mailgunUrl = "mg.sslmobilecompany.com";
   this.mailgunApiKey = window.btoa("api:key-e7cc4625ddf17e80d6c105cae11aaa18");
@@ -46,20 +45,15 @@ constructor(public http: Http, public navCtrl: NavController, public formBuilder
     });
 
     this.slideTwoForm = formBuilder.group({
-        address: ['',  Validators.required],
-        type: ['',  Validators.required],
-        frequency: ['',  Validators.required],
-        numberOfRooms: ['',  Validators.required],
-        numberOfBathrooms: ['',  Validators.required],
-        numberOfKitchens: ['',  Validators.required],
-        numberOfOtherRooms: ['', Validators.required],
-        numberOfLevels: ['', Validators.required]
-
+        pickupAddress: ['',  Validators.required],
+        destinationAddress: ['',  Validators.required],
+        size: ['',  Validators.required],
+        weight: ['',  Validators.required]
     });
 
     this.slideThreeForm = formBuilder.group({
-        flatRate: [''],
-        firstServiceDate: [''],
+
+        pickupDate: [''],
         notes: ['']
     });
   }
@@ -137,6 +131,14 @@ constructor(public http: Http, public navCtrl: NavController, public formBuilder
 
       .subscribe(success => {
           console.log("SUCCESS -> " + JSON.stringify(success));
+          let myModal = this.modalCtrl.create(RequestCompleteModalPage);
+          this.navCtrl.popToRoot()
+          .then( () => {
+            myModal.present();
+          })
+          .catch( (error) => {
+            console.log("An error has occurred while navigating back to the root view",error)
+          })
       }, error => {
           console.log("ERROR -> " + JSON.stringify(error));
       });

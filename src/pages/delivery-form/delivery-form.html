@@ -70,53 +70,26 @@
         <form [formGroup]="slideTwoForm">
 
           <ion-item>
-            <ion-label floating> Address</ion-label>
-            <ion-input formControlName="address" type="text"></ion-input>
+            <ion-label floating> Pick Up Address</ion-label>
+            <ion-input formControlName="pickupAddress" type="text"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-label floating>Type</ion-label>
-            <ion-select formControlName="type">
-              <ion-option value="office" checked="true">Office</ion-option>
-              <ion-option value="domestic">Domestic</ion-option>
-            </ion-select>
+              <ion-label floating> Delivery Address</ion-label>
+              <ion-input formControlName="destinationAddress" type="text"></ion-input>
           </ion-item>
-          <ion-item>
-            <ion-label floating>Frequency</ion-label>
-            <ion-select formControlName="frequency">
-              <ion-option value="once-off" checked="true">Once Off(Spring Clean)</ion-option>
-              <ion-option value="moving-in">Moving In</ion-option>
-              <ion-option value="moving-out">Moving Out</ion-option>
-              <ion-option value="daily">Daily</ion-option>
-              <ion-option value="weekly">Weeekly</ion-option>
-              <ion-option value="fortnightly">Fortnightly</ion-option>
-              <ion-option value="monthly">Monthly</ion-option>
-            </ion-select>
-          </ion-item>
+
           <ion-list-header>
-             Specifications
+             Item Specifications
           </ion-list-header>
           <ion-item>
-            <ion-label floating>Number of Bedrooms</ion-label>
-            <ion-input formControlName="numberOfRooms" type="number"></ion-input>
+            <ion-label>Weight in Kg</ion-label>
+            <ion-input placeholder="Leave Blank if unsure" formControlName="weight" type="number"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label floating>Number of Bathrooms</ion-label>
-            <ion-input formControlName="numberOfBathrooms" type="number"></ion-input>
+            <ion-label>Item size</ion-label>
+            <ion-input placeholder="Leave Blank if unsure" formControlName="size" type="number"></ion-input>
           </ion-item>
-          <ion-item>
-            <ion-label floating>Number of Kitchens</ion-label>
-            <ion-input formControlName="numberOfKitchens"  type="number"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating>Number of Other rooms(Dinning etc. )</ion-label>
-            <ion-input  formControlName="numberOfOtherRooms" type="number"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating>Number of Levels</ion-label>
-            <ion-input type="number"  formControlName="numberOfLevels"></ion-input>
-          </ion-item>
-
         </form>
 
       </ion-list>
@@ -128,12 +101,7 @@
         <form [formGroup]="slideThreeForm">
           <ion-item>
             <ion-label floating>Date and time of first service</ion-label>
-            <ion-datetime formControlName="firstServiceDate" displayFormat="DD/MM/YYYY"></ion-datetime>
-          </ion-item>
-
-          <ion-item>
-            <ion-label floating>Flat Rate</ion-label>
-            <ion-input formControlName="flatRate" ></ion-input>
+            <ion-datetime formControlName="pickupDate" displayFormat="DD/MM/YYYY"></ion-datetime>
           </ion-item>
           <ion-item>
               <ion-label floating>Notes</ion-label>
