@@ -25335,24 +25335,27 @@ page-checkout #credit-card-number.braintree-hosted-fields-valid {
   border-color: limegreen;
 }
 
-page-products scroll-content {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+page-products .card-background-page ion-card {
+  position: relative;
+  text-align: center;
+  padding: 0px;
 }
 
-page-products ion-grid {
-  padding: 0;
-  height: 100%;
+page-products .card-background-page .card-title {
+  position: absolute;
+  top: 36%;
+  font-size: 2.0em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
 }
 
-page-products ion-row {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+page-products .card-background-page .card-subtitle {
+  font-size: 1.0em;
+  position: absolute;
+  top: 52%;
+  width: 100%;
+  color: #fff;
 }
 
 ion-note {

@@ -13,7 +13,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content >
-  <div class="card-background-page">
+<div class="card-background-page">
   <ion-grid >
     <ion-row>
       <ion-col *ngFor="let category of categories" col-6>
@@ -27,15 +27,23 @@
     </ion-row>
   </ion-grid>
 </div>
-
-  <ion-list >
-      <ion-list-header>
-        <h2>Request Forms</h2>
-
-        </ion-list-header>
-      <button ion-item *ngFor="let f of forms" (click)="goToForm(f)">
-        {{ f.title }}
-      </button>
-    </ion-list>
-
+<ion-list>
+<ion-list-header text-center>
+    <h2><strong>Request Forms</strong></h2>
+</ion-list-header>
+</ion-list>
+<div class="card-background-page">
+    <ion-grid >
+      <ion-row>
+        <ion-col *ngFor="let f of forms" col-6>
+        <ion-card >
+          <img src="{{'https://marketcloud.azureedge.net/website-v2/logo-text-center-padding.png'}}" />
+          <ion-card-title>
+            <button ion-button large (click)=goToForm(f); color="secondary"><h3><strong>{{ f.title }}</strong></h3></button>
+          </ion-card-title>
+        </ion-card>
+      </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

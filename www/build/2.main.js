@@ -1,13 +1,13 @@
 webpackJsonp([2],{
 
-/***/ 342:
+/***/ 343:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__maintenance_form__ = __webpack_require__(58);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MaintenanceFormPageModule", function() { return MaintenanceFormPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__order_complete_modal__ = __webpack_require__(119);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrderCompleteModalPageModule", function() { return OrderCompleteModalPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -16,23 +16,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 
 
-var MaintenanceFormPageModule = (function () {
-    function MaintenanceFormPageModule() {
+var OrderCompleteModalPageModule = (function () {
+    function OrderCompleteModalPageModule() {
     }
-    return MaintenanceFormPageModule;
+    return OrderCompleteModalPageModule;
 }());
-MaintenanceFormPageModule = __decorate([
+OrderCompleteModalPageModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_1__maintenance_form__["a" /* MaintenanceFormPage */],
+            __WEBPACK_IMPORTED_MODULE_1__order_complete_modal__["a" /* OrderCompleteModalPage */],
         ],
+        imports: [],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_1__maintenance_form__["a" /* MaintenanceFormPage */]
+            __WEBPACK_IMPORTED_MODULE_1__order_complete_modal__["a" /* OrderCompleteModalPage */]
         ]
     })
-], MaintenanceFormPageModule);
+], OrderCompleteModalPageModule);
 
-//# sourceMappingURL=maintenance-form.module.js.map
+//# sourceMappingURL=order-complete-modal.module.js.map
 
 /***/ })
 
