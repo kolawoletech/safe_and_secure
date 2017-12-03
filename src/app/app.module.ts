@@ -4,12 +4,13 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { EmailComposer } from '@ionic-native/email-composer';
 import { ProductsPage } from '../pages/products/products';
 import { CheckoutPage } from '../pages/checkout/checkout';
 import { CategoriesPage } from '../pages/categories/categories';
 import { OrderCompleteModalPage } from '../pages/order-complete-modal/order-complete-modal';
 import { RequestCompleteModalPage } from '../pages/request-complete-modal/request-complete-modal';
-
+import { Camera } from '@ionic-native/camera';
 import { ItemPage } from '../pages/item/item';
 import { CartPage } from '../pages/cart/cart';
 
@@ -86,7 +87,7 @@ import { MarketcloudService } from '../providers/marketcloud-service';
     ConfigurationService,
     PropertyService,
     AppRate,
-    BrokerService, StorageProvider, InAppBrowser, UtilProvider,MarketcloudService
+    BrokerService, StorageProvider, InAppBrowser, UtilProvider,MarketcloudService, EmailComposer, Camera
   ]
 })
 export class AppModule {}
