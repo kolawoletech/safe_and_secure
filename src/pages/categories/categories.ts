@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, LoadingController  } from 'ionic-angular';
 
 import { MarketcloudService } from '../../providers/marketcloud-service';
 
@@ -27,7 +27,8 @@ export class CategoriesPage {
       public navCtrl: NavController,
       public navParams: NavParams,
       private marketcloud: MarketcloudService,
-      private alertCtrl: AlertController) {
+      private alertCtrl: AlertController,
+      private loadingCtrl: LoadingController) {
 
         this.forms = [
           { title: 'Bring It Home', component: DeliveryFormPage },
@@ -35,9 +36,16 @@ export class CategoriesPage {
           //{ title: 'Maintenance', component: MaintenanceFormPage },
 
         ];
+    let loading = this.loadingCtrl.create({
+      content: 'Loading Categories...'
+    });
+    loading.present();
     marketcloud.client.categories.list()
     .then((response) => {
+
+
       this.categories = response.data;
+      loading.dismiss();
     })
     .catch((error) => {
       let alert = this.alertCtrl.create({
