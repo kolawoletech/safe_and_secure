@@ -28,7 +28,11 @@ export class CheckoutPage {
   currentStep : string;
   public address:any;
   addressForm: any;
-
+  merchant_id: any;
+  merchant_key: any;
+  return_url: any;
+  cancel_url: any;
+  success_url: any;
   constructor(
     public modalCtrl: ModalController,
     public loadingCtrl: LoadingController,
@@ -45,7 +49,10 @@ export class CheckoutPage {
     // Initial step counter
     this.step = 0;
     this.currentStep = "Address";
-
+    this.merchant_id= "12217927";
+    this.merchant_key= "ebp36hd9gs6u8";
+    this.cancel_url="https://sslmobilecompany.com/payment-failure";
+    this.success_url="https://sslmobilecompany.com/payment-failure";
     this.addressForm = formBuilder.group({
       full_name: [''],
       country:[''],
@@ -122,7 +129,8 @@ export class CheckoutPage {
   }
 
   completeCheckout() {
-    console.log(this.addressForm.value);
+      console.log(this.cart);
+      console.log(this.cart.items['name']);
       if (true === this.validateAddress() && true === this.validatePayment()){
 
         let loading = this.loadingCtrl.create({
@@ -148,22 +156,16 @@ export class CheckoutPage {
           })
         })
         .then( (response) => {
-          console.log(this.addressForm.value);
           var pageContent = '<html><head></head><body><form id="loginForm" action="https://www.payfast.co.za/eng/process" method="post">' +
         '<input type="hidden" name="amount" value="' + this.cart.total + '">' +
-        '<input type="hidden" name="merchant_id" value="' + this.cart.total + '">' +
-        '<input type="hidden" name="merchant_key" value="' + this.cart.total + '">' +
-        '<input type="hidden" name="return_url" value="' + this.cart.total + '">' +
-        '<input type="hidden" name="notify_url" value="' + this.cart.total + '">' +
-        '<input type="hidden" name="cancel_url" value="' + this.cart.total + '">' +
-        '<input type="hidden" name="name_first" value="' + this.cart.total + '">' +
-        '<input type="hidden" name="name_kast" value="' + this.cart.total + '">' +
-        '<input type="hidden" name="email_address" value="' + this.cart.total + '">' +
-        '<input type="hidden" name="cell_number" value="' + this.cart.total + '">' +
-        '<input type="hidden" name="item_name" value="' + this.cart.total + '">' +
-        '<input type="hidden" name="item_description" value="' + this.cart.total + '">' +
-        '<input type="hidden" name="amount" value="' + this.cart.total + '">' +
-        '<input type="hidden" name="amount" value="' + this.cart.total + '">' +
+        '<input type="hidden" name="merchant_id" value="' +this.merchant_id + '">' +
+        '<input type="hidden" name="merchant_key" value="' + this.merchant_key + '">' +
+        '<input type="hidden" name="return_url" value="' + this.success_url + '">' +
+        '<input type="hidden" name="cancel_url" value="' + this.cancel_url + '">' +
+        '<input type="hidden" name="name_first" value="' + this.addressForm.value["full_name"] + '">' +
+        '<input type="hidden" name="email_address" value="' +this.addressForm.value["email"] + '">' +
+        '<input type="hidden" name="item_name" value="' + this.cart.items['name'] + '">' +
+        '<input type="hidden" name="item_description" value="' +  this.cart.items['description'] + '">' +
         '</form> <script type="text/javascript">document.getElementById("loginForm").submit();</script></body></html>';
         var pageContentUrl = 'data:text/html;base64,' + btoa(pageContent);
         var browser = this.iab.create(pageContentUrl, '_self', 'hidden=no,clearsessioncache=yes,clearcache=yes');

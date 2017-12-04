@@ -21,9 +21,6 @@ export class CartPage {
   				public alertCtrl: AlertController,
   				public configuration: ConfigurationService,
   				public marketcloud: MarketcloudService) {
-
-
-
   }
 
   ionViewDidLoad() {
