@@ -101,14 +101,9 @@ export class CartPage {
   	}).reduce((a,b) => {
   		return a+b;
   	});
-  }
-
+	}
 
   proceedToCheckout() {
-    // Showing single product details
-    this.navCtrl.push(CheckoutPage);
-  }
-  proceedToPayPalCheckout() {
     // Showing single product details
     this.navCtrl.push(CheckoutPage);
   }

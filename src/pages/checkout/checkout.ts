@@ -27,7 +27,7 @@ export class CheckoutPage {
   cart : any = {items : []};
   currentStep : string;
   public address:any;
-  addressForm: FormGroup;
+  addressForm: any;
 
   constructor(
     public modalCtrl: ModalController,
@@ -80,82 +80,11 @@ export class CheckoutPage {
 
 
   onSubmit() {
-      var pageContent = '<html><head></head><body><form id="loginForm" action="https://www.payfast.co.za/eng/process" method="post">' +
-    '<input type="hidden" name="amount" value="' + this.cart.total + '">' +
-    '<input type="hidden" name="merchant_id" value="' + this.cart.total + '">' +
-    '<input type="hidden" name="merchant_key" value="' + this.cart.total + '">' +
-    '<input type="hidden" name="return_url" value="' + this.cart.total + '">' +
-    '<input type="hidden" name="notify_url" value="' + this.cart.total + '">' +
-    '<input type="hidden" name="cancel_url" value="' + this.cart.total + '">' +
-    '<input type="hidden" name="name_first" value="' + this.cart.total + '">' +
-    '<input type="hidden" name="name_kast" value="' + this.cart.total + '">' +
-    '<input type="hidden" name="email_address" value="' + this.cart.total + '">' +
-    '<input type="hidden" name="cell_number" value="' + this.cart.total + '">' +
-    '<input type="hidden" name="item_name" value="' + this.cart.total + '">' +
-    '<input type="hidden" name="item_description" value="' + this.cart.total + '">' +
-    '<input type="hidden" name="amount" value="' + this.cart.total + '">' +
-    '<input type="hidden" name="amount" value="' + this.cart.total + '">' +
-    '</form> <script type="text/javascript">document.getElementById("loginForm").submit();</script></body></html>';
-    var pageContentUrl = 'data:text/html;base64,' + btoa(pageContent);
-    var browser = this.iab.create(pageContentUrl, '_self', 'hidden=no,clearsessioncache=yes,clearcache=yes');
-    browser.executeScript({code: "(function() { alert(123); })()"});
+
+  //  browser.executeScript({code: "(function() { alert(123); })()"});
 
 
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CheckoutPage');
-    var that : any = this;
-    var payfastIntegrationConfig : any = {
-        id: "payment-form",
-        hostedFields: {
-          number: {
-            selector: "#credit-card-number"
-          },
-          cvv: {
-            selector: "#cvv"
-          },
-          expirationDate: {
-            selector: "#expiration-date"
-          },
-          styles: {
-            // Style all elements
-            'input': {
-               'background-color':'red',
-              'font-size': '16px',
-              'color': '#3A3A3A',
-              'height':  '32px',
-              'border' : '1px solid #ccc',
-
-            },
-
-            // Styling a specific field
-            '.number': {
-              'background-color':'red',
-              'border' : '1px solid #ccc',
-              'height':  '32px'
-            },
-
-            // Styling element state
-            ':focus': {
-              'color': 'blue'
-            },
-            '.valid': {
-              'color': 'green'
-            },
-            '.invalid': {
-              'color': 'red'
-            }
-          }
-        },
-        onPaymentMethodReceived : function(response) {
-          // We received the nonce from Braintree
-          // we store it into a class propertu
-          that.braintreeNonce = response.nonce;
-        }
-      };
-  }
-
 
   validateAddress() {
     return true;
@@ -188,19 +117,12 @@ export class CheckoutPage {
     }
 
     if (this.currentStep === "Review") {
-      // We validate the payment and the address
-
-      //if validation returns true, then we create the order
-
-
 
     }
-
-
-
   }
 
   completeCheckout() {
+    console.log(this.addressForm.value);
       if (true === this.validateAddress() && true === this.validatePayment()){
 
         let loading = this.loadingCtrl.create({
@@ -210,9 +132,8 @@ export class CheckoutPage {
         loading.present();
 
         return this.marketcloud.client.orders.create({
-
-          shipping_address :this.address.value,
-          billing_address : this.address.value,
+          shipping_address :this.addressForm.value,
+          billing_address : this.addressForm.value,
           cart_id : Number(this.configuration.get('cart_id'))
         })
         .then( (response) => {
@@ -227,7 +148,26 @@ export class CheckoutPage {
           })
         })
         .then( (response) => {
-            // Here you can move your user into the order complete view
+          console.log(this.addressForm.value);
+          var pageContent = '<html><head></head><body><form id="loginForm" action="https://www.payfast.co.za/eng/process" method="post">' +
+        '<input type="hidden" name="amount" value="' + this.cart.total + '">' +
+        '<input type="hidden" name="merchant_id" value="' + this.cart.total + '">' +
+        '<input type="hidden" name="merchant_key" value="' + this.cart.total + '">' +
+        '<input type="hidden" name="return_url" value="' + this.cart.total + '">' +
+        '<input type="hidden" name="notify_url" value="' + this.cart.total + '">' +
+        '<input type="hidden" name="cancel_url" value="' + this.cart.total + '">' +
+        '<input type="hidden" name="name_first" value="' + this.cart.total + '">' +
+        '<input type="hidden" name="name_kast" value="' + this.cart.total + '">' +
+        '<input type="hidden" name="email_address" value="' + this.cart.total + '">' +
+        '<input type="hidden" name="cell_number" value="' + this.cart.total + '">' +
+        '<input type="hidden" name="item_name" value="' + this.cart.total + '">' +
+        '<input type="hidden" name="item_description" value="' + this.cart.total + '">' +
+        '<input type="hidden" name="amount" value="' + this.cart.total + '">' +
+        '<input type="hidden" name="amount" value="' + this.cart.total + '">' +
+        '</form> <script type="text/javascript">document.getElementById("loginForm").submit();</script></body></html>';
+        var pageContentUrl = 'data:text/html;base64,' + btoa(pageContent);
+        var browser = this.iab.create(pageContentUrl, '_self', 'hidden=no,clearsessioncache=yes,clearcache=yes');
+                    // Here you can move your user into the order complete view
             loading.dismiss();
 
             // The modal will show "Order complete"
