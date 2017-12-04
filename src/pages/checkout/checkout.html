@@ -3,7 +3,6 @@
     <ion-title>Checkout</ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content>
   <div padding>
     <ion-segment [(ngModel)]="currentStep">
@@ -24,7 +23,7 @@
 
     <ion-item>
       <ion-label fixed>Full name</ion-label>
-      <ion-input type="text" [(ngModel)]="addressForm.fullname" name="full_name" formControlName="full_name"></ion-input>
+      <ion-input type="text" formControlName="full_name"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -52,12 +51,10 @@
       <ion-input type="text"  formControlName="address1"></ion-input>
     </ion-item>
   </form>
-
   </div>
   <div [hidden]="currentStep !== 'Review'">
-
     <ion-card>
-      <ion-card-header>Review</ion-card-header>submit
+      <ion-card-header>Review</ion-card-header>
       <ion-card-content *ngIf="cart.items.length === 0">
         Your cart is empty!
       </ion-card-content>
@@ -92,25 +89,16 @@
       <ion-card-content *ngIf="cart.items.length > 0">
         <div>Total for this order is ZAR {{cart.total}}</div>
       </ion-card-content>
-
-
     </ion-card>
-
   </div>
-
 </ion-content>
-
-
 <ion-footer>
   <ion-toolbar>
-
-    <button ion-button color="primary" block (click)=proceedToNextStep() *ngIf="currentStep !== 'Review'">
+    <button [disabled]="!addressForm.valid" ion-button color="primary" block (click)=proceedToNextStep() *ngIf="currentStep !== 'Review'">
       Proceed
     </button>
-
     <button ion-button color="primary" block (click)=completeCheckout() *ngIf="currentStep === 'Review'">
       Complete checkout
     </button>
-
   </ion-toolbar>
 </ion-footer>

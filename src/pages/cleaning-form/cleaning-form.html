@@ -1,9 +1,5 @@
 <ion-header>
-  <ion-navbar primary>
-
-    <button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+  <ion-navbar color="secondary">
     <ion-title>
       Cleaning Services Request
     </ion-title>
@@ -15,35 +11,23 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-
-
-<ion-content  padding>
-
+<ion-content padding>
   <ion-slides class="slider-page" #cleaningSlider >
     <ion-slide>
-
       <ion-card>
-
         <ion-card-header>
           Request Cleaning
         </ion-card-header>
-
         <ion-card-content>
           Fill a request form by clicking the next button.<br>
-          <p>Form the form for price estimate and we will visit for invoice generation and cost confirmation</p>
+          <p>We will visit for invoice generation and cost confirmation</p>
         </ion-card-content>
-
       </ion-card>
-
     </ion-slide>
     <ion-slide>
-
       <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
-
       <ion-list no-lines>
-
         <form [formGroup]="slideOneForm">
-
           <ion-item>
             <ion-label floating>First Name</ion-label>
             <ion-input formControlName="firstName" type="text" [class.invalid]="!slideOneForm.controls.firstName.valid && (slideOneForm.controls.firstName.dirty || submitAttempt)"></ion-input>
@@ -52,12 +36,10 @@
           <ion-item *ngIf="!slideOneForm.controls.firstName.valid  && (slideOneForm.controls.firstName.dirty || submitAttempt)">
             <p>Please enter a valid name.</p>
           </ion-item>
-
           <ion-item>
             <ion-label floating>Last Name</ion-label>
             <ion-input formControlName="lastName" type="text"></ion-input>
           </ion-item>
-
           <ion-item *ngIf="!slideOneForm.controls.lastName.valid  && (slideOneForm.controls.lastName.dirty || submitAttempt)">
             <p>Please enter a valid name.</p>
           </ion-item>
@@ -180,15 +162,10 @@
           <ion-item>
             <ion-label floating>Notes</ion-label>
             <ion-textarea elastic formControlName="notes"></ion-textarea>
-            <ion-textarea placeholder="Word Uo One" elastic></ion-textarea>
           </ion-item>
-<ion-textarea placeholder="Word Uo Two" elastic></ion-textarea>
         </form>
 
       </ion-list>
-
-      <button ion-button full color="primary" (click)="save()">Create Account!</button>
-
     </ion-slide>
     <ion-slide>
 

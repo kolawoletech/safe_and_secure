@@ -6,9 +6,6 @@ import { CheckoutPage } from './checkout';
   declarations: [
     CheckoutPage
   ],
-  imports: [
-
-   ],
   exports: [
     CheckoutPage
   ],

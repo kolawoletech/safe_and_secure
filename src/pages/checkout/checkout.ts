@@ -1,12 +1,12 @@
 import { Http } from '@angular/http';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ModalController, LoadingController} from 'ionic-angular';
-import { Validators, FormBuilder, FormGroup  } from '@angular/forms';
+import {  FormBuilder, Validators  } from '@angular/forms';
 import { ConfigurationService } from '../../providers/configuration-service';
 import { MarketcloudService } from '../../providers/marketcloud-service';
 import { OrderCompleteModalPage } from '../order-complete-modal/order-complete-modal';
-import { EmailValidator } from '../../validators/email';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { EmailValidator } from  '../../validators/email';
 
 
 /**
@@ -54,13 +54,13 @@ export class CheckoutPage {
     this.cancel_url="https://sslmobilecompany.com/payment-failure";
     this.success_url="https://sslmobilecompany.com/payment-failure";
     this.addressForm = formBuilder.group({
-      full_name: [''],
-      country:[''],
-      state: [''],
-      city: [''],
-      postal_code: [''],
-      email:[''],
-      address1: ['']
+      country:['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+      state: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+      city: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+      postal_code: ['', Validators.required],
+      email:['', EmailValidator.isValid],
+      address1: ['', Validators.required],
+      full_name: ['',Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])]
     });
     // Available steps
     //"Address",
@@ -84,15 +84,6 @@ export class CheckoutPage {
 
   }
 
-
-
-  onSubmit() {
-
-  //  browser.executeScript({code: "(function() { alert(123); })()"});
-
-
-  }
-
   validateAddress() {
     return true;
   }
@@ -100,7 +91,6 @@ export class CheckoutPage {
   validatePayment() {
     return true;
   }
-
 
   proceedToNextStep() {
 
@@ -168,8 +158,8 @@ export class CheckoutPage {
         '<input type="hidden" name="item_description" value="' +  this.cart.items['description'] + '">' +
         '</form> <script type="text/javascript">document.getElementById("loginForm").submit();</script></body></html>';
         var pageContentUrl = 'data:text/html;base64,' + btoa(pageContent);
-        var browser = this.iab.create(pageContentUrl, '_self', 'hidden=no,clearsessioncache=yes,clearcache=yes');
-                    // Here you can move your user into the order complete view
+        let browser = this.iab.create(pageContentUrl, '_self', 'hidden=no,clearsessioncache=yes,clearcache=yes');
+        // Here you can move your user into the order complete view
             loading.dismiss();
 
             // The modal will show "Order complete"

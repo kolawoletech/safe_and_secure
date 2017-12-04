@@ -6,9 +6,6 @@ import { RequestCompleteModalPage } from '../request-complete-modal/request-comp
 
 import { IonicPage,NavController, ModalController } from 'ionic-angular';
 import { Http, Headers, Request, RequestMethod } from "@angular/http";
-
-
-
 /*
   Generated class for the CleaningForm page.
 
@@ -79,6 +76,23 @@ export class CleaningFormPage {
     }
 
     send(sender: string) {
+        this.submitAttempt = true;
+
+            if(!this.slideOneForm.valid){
+                this.cleaningSlider.slideTo(1);
+            }
+            else if(!this.slideTwoForm.valid){
+                this.cleaningSlider.slideTo(2);
+            }
+            else if(!this.slideThreeForm.valid){
+                this.cleaningSlider.slideTo(3);
+            }
+            else {
+                console.log("success!")
+                console.log(this.slideOneForm.value);
+                console.log(this.slideTwoForm.value);
+                console.log(this.slideThreeForm.value);
+            }
         var requestHeaders = new Headers();
         let contentOne = JSON.stringify(this.slideOneForm.value);
         let contentTwo = JSON.stringify(this.slideTwoForm.value);

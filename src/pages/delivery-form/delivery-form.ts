@@ -66,28 +66,6 @@ constructor(public http: Http, public navCtrl: NavController, public formBuilder
       this.deliverySlider.slidePrev();
   }
 
-  save(){
-
-      this.submitAttempt = true;
-
-      if(!this.slideOneForm.valid){
-          this.deliverySlider.slideTo(1);
-      }
-      else if(!this.slideTwoForm.valid){
-          this.deliverySlider.slideTo(2);
-      }
-      else if(!this.slideThreeForm.valid){
-          this.deliverySlider.slideTo(3);
-      }
-      else {
-          console.log("success!")
-          console.log(this.slideOneForm.value);
-          console.log(this.slideTwoForm.value);
-          console.log(this.slideThreeForm.value);
-      }
-
-  }
-
   send(sender: string) {
     this.submitAttempt = true;
 

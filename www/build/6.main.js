@@ -1,6 +1,6 @@
 webpackJsonp([6],{
 
-/***/ 342:
+/***/ 343:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26,7 +26,6 @@ CheckoutPageModule = __decorate([
         declarations: [
             __WEBPACK_IMPORTED_MODULE_1__checkout__["a" /* CheckoutPage */]
         ],
-        imports: [],
         exports: [
             __WEBPACK_IMPORTED_MODULE_1__checkout__["a" /* CheckoutPage */]
         ],
