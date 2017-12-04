@@ -53,51 +53,39 @@
             <ion-label floating>Phone Number</ion-label>
             <ion-input formControlName="phone" type="text" [class.invalid]="!slideOneForm.controls.phone.valid && (slideOneForm.controls.phone.dirty || submitAttempt)"></ion-input>
           </ion-item>
-
           <ion-item *ngIf="!slideOneForm.controls.phone.valid  && (slideOneForm.controls.phone.dirty || submitAttempt)">
             <p>Please enter a valid phone number.</p>
           </ion-item>
         </form>
-
       </ion-list>
-
     </ion-slide>
-
     <ion-slide>
-
       <br />   <ion-list no-lines>
-
         <form [formGroup]="slideTwoForm">
-
           <ion-item>
             <ion-label floating> Pick Up Address</ion-label>
             <ion-input formControlName="pickupAddress" type="text"></ion-input>
           </ion-item>
-
           <ion-item>
               <ion-label floating> Delivery Address</ion-label>
               <ion-input formControlName="destinationAddress" type="text"></ion-input>
           </ion-item>
-
           <ion-list-header>
-             Item Specifications
+             <strong>Item Specifications</strong>
           </ion-list-header>
           <ion-item>
-            <ion-label>Weight in Kg</ion-label>
-            <ion-input placeholder="Leave Blank if unsure" formControlName="weight" type="number"></ion-input>
+            <ion-label floating><strong>Weight(In Kg)</strong> </ion-label>
+            <ion-input formControlName="weight" type="number"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label>Item Dimensions</ion-label>
-            <ion-input placeholder="Leave Blank if unsure" formControlName="size" type="number"></ion-input>
+            <ion-label floating><strong>Items Dimensions</strong> </ion-label>
+            <ion-input formControlName="size" type="number"></ion-input>
           </ion-item>
         </form>
-
       </ion-list>
     </ion-slide>
     <ion-slide>
-
       <ion-list no-lines>
-
         <form [formGroup]="slideThreeForm">
           <ion-item>
             <ion-label floating>Date and time of first service</ion-label>
@@ -109,10 +97,7 @@
            </ion-item>
         </form>
       </ion-list>
-
       <button ion-button full color="secondary" (click)="send(sender)">Submit!</button>
-
     </ion-slide>
   </ion-slides>
-
 </ion-content>
