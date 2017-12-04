@@ -27,6 +27,7 @@ export class CheckoutPage {
   cart : any = {items : []};
   currentStep : string;
   public address:any;
+  addressForm: FormGroup;
 
   constructor(
     public modalCtrl: ModalController,
@@ -45,16 +46,14 @@ export class CheckoutPage {
     this.step = 0;
     this.currentStep = "Address";
 
-
-
-    this.address = this.formBuilder.group({
-      full_name: [""],
-      country:[""],
-      state: [""],
-      city: [""],
-      postal_code: [""],
-      email:[""],
-      address1: [""]
+    this.addressForm = formBuilder.group({
+      full_name: [''],
+      country:[''],
+      state: [''],
+      city: [''],
+      postal_code: [''],
+      email:[''],
+      address1: ['']
     });
     // Available steps
     //"Address",

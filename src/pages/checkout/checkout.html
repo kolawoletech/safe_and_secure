@@ -1,9 +1,7 @@
 <ion-header>
-
   <ion-navbar>
     <ion-title>Checkout</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 <ion-content>
@@ -21,12 +19,46 @@
     </ion-segment>
   </div>
   <div [hidden]="currentStep !== 'Address'">
+    <form [formGroup]="addressForm">
+    <ion-item>
+      <ion-label fixed>Email address</ion-label>
+      <ion-input type="email" placeholder="john@example.com"   formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Full name</ion-label>
+      <ion-input type="text" placeholder="John Doe" formControlName="full_name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Country</ion-label>
+      <ion-input type="text" placeholder="Moon" formControlName="country"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>State</ion-label>
+      <ion-input type="text" placeholder="Dark side of the moon"  formControlName="state"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>City</ion-label>
+      <ion-input type="text" placeholder="Hidden City"  formControlName="city"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Postal code</ion-label>
+      <ion-input type="text" placeholder="1234"  formControlName="postal_code"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Address</ion-label>
+      <ion-input type="text" placeholder="Evergreen terrace 123" formControlName="address1"></ion-input>
+    </ion-item>
 
     <button (click)="onSubmit()" type="submit">Submddit</button>
+    <button ion-button type="submit" [disabled]="!addressForm.valid">Submit</button>
 
-    <button ion-button type="submit" [disabled]="!address.valid">Submit</button>
-
-
+  </form>
 
   </div>
 

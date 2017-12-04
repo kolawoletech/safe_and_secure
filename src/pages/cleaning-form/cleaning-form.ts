@@ -34,7 +34,7 @@ export class CleaningFormPage {
 
     submitAttempt: boolean = false;
 
-  constructor(public http: Http, public navCtrl: NavController, public formBuilder: FormBuilder, public modalCtrl: ModalController) {
+  constructor( public http: Http, public navCtrl: NavController, public formBuilder: FormBuilder, public modalCtrl: ModalController) {
     this.http = http;
     this.mailgunUrl = "mg.sslmobilecompany.com";
     this.mailgunApiKey = window.btoa("api:key-e7cc4625ddf17e80d6c105cae11aaa18");
@@ -61,10 +61,7 @@ export class CleaningFormPage {
           numberOfBathroomsOffice: [''],
           numberOfKitchensOffice: [''],
           numberOfLevelsOffice: [''],
-
           notes: ['']
-
-
       });
 
       this.slideThreeForm = formBuilder.group({
@@ -81,28 +78,6 @@ export class CleaningFormPage {
         this.cleaningSlider.slidePrev();
     }
 
-    save(){
-
-        this.submitAttempt = true;
-
-        if(!this.slideOneForm.valid){
-            this.cleaningSlider.slideTo(0);
-        }
-        else if(!this.slideTwoForm.valid){
-            this.cleaningSlider.slideTo(1);
-        }
-        else if(!this.slideThreeForm.valid){
-            this.cleaningSlider.slideTo(2);
-        }
-        else {
-            console.log("success!")
-            console.log(this.slideOneForm.value);
-            console.log(this.slideTwoForm.value);
-            console.log(this.slideThreeForm.value);
-        }
-
-    }
-
     send(sender: string) {
         var requestHeaders = new Headers();
         let contentOne = JSON.stringify(this.slideOneForm.value);
@@ -115,7 +90,6 @@ export class CleaningFormPage {
         requestHeaders.append("Upgrade-Insecure-Requests","1");
         requestHeaders.append("withCredentials","true");
         requestHeaders.append("Access-Control-Allow-Origin","http://localhost:8100");
-        requestHeaders.append("Access-Control-Allow-Credentials", "true");
         requestHeaders.append("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         requestHeaders.append("Access-Control-Allow-Headers", "Content-Type,Authorization,Upgrade-Insecure-Requests");
 

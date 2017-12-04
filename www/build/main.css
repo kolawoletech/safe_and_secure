@@ -25335,6 +25335,10 @@ page-checkout #credit-card-number.braintree-hosted-fields-valid {
   border-color: limegreen;
 }
 
+page-cleaning-form {
+  padding: 2px;
+}
+
 page-products .card-background-page ion-card {
   position: relative;
   text-align: center;
