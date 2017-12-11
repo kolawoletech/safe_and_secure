@@ -1,6 +1,8 @@
+
 import {Injectable} from '@angular/core';
-import {Http, Headers, RequestOptions} from '@angular/http';
-import { Config } from '../../providers/config';
+import {Http, Headers, Request, RequestOptions, RequestMethod} from '@angular/http';
+import { Config } from './config';
+import 'rxjs/add/operator/toPromise';
 
 let propertiesURL = Config.SERVER_URL + 'properties/',
     favoritesURL = propertiesURL + 'favorites/';
@@ -13,9 +15,24 @@ export class PropertyService {
     }
 
     findAll() {
-        return this.http.get(propertiesURL)
+        var requestHeaders = new Headers();
+        requestHeaders.append("Authorization", "Basic " + propertiesURL);
+        requestHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+        requestHeaders.append("Accept", "/");
+        requestHeaders.append("Access-Control-Allow-Credentials", "true");
+        requestHeaders.append("Upgrade-Insecure-Requests","1");
+        requestHeaders.append("withCredentials","true");
+        requestHeaders.append("Access-Control-Allow-Origin","http://localhost:8080");
+        requestHeaders.append("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        //requestHeaders.append("Access-Control-Allow-Headers", "Content-Type,Authorization,Upgrade-Insecure-Requests");
+        return this.http.request(new Request({
+            method: RequestMethod.Get,
+            url: propertiesURL,
+            headers: requestHeaders
+        }))
             .map(res => res.json())
             .toPromise();
+
     }
 
     findByName(key:string) {

@@ -92,8 +92,8 @@ export class MyApp {
       this.pages = [
         { title: 'Home', component: ProductsPage },
         { title: 'Categories', component: CategoriesPage },
-        { title: 'Cart', component: CartPage },
-        { title: 'Real Estate', component: PropertyListPage }
+        { title: 'Real Estate', component: PropertyListPage },
+        { title: 'Cart', component: CartPage }
       ];
 
       this.helpMenus = [

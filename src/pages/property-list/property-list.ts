@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import {Config, NavController} from 'ionic-angular';
-import {PropertyService} from '../../providers/property-service-mock';
+import { PropertyService } from '../../providers/property-service-rest';
 import {PropertyDetailPage} from '../property-detail/property-detail';
+import { Http, Headers, Request, RequestMethod } from "@angular/http";
 import leaflet from 'leaflet';
 
 @Component({

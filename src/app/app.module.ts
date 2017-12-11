@@ -27,7 +27,7 @@ import { ConfigurationService } from '../providers/configuration-service';
 import { IonicStorageModule } from '@ionic/storage'
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import { PropertyService } from '../providers/property-service-mock';
+import { PropertyService } from '../providers/property-service-rest';
 import { BrokerService } from '../providers/broker-service-mock';
 import { StorageProvider } from '../providers/storage-provider/storage-provider';
 import { UtilProvider } from '../providers/util-provider/util-provider';
