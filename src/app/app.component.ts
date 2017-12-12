@@ -103,8 +103,7 @@ export class MyApp {
 
       this.requestForms = [
         { title: 'Delivery', component: DeliveryFormPage },
-        { title: 'Cleaning', component: CleaningFormPage },
-        { title: 'Maintenance', component: MaintenanceFormPage }
+        { title: 'Cleaning', component: CleaningFormPage }
       ];
       // Marketcloud
       // If we don't have a cart here, we create a cart and store the id into the

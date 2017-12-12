@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar color="secondary">
         <ion-title>Property</ion-title>
     </ion-navbar>
 </ion-header>
@@ -29,22 +29,14 @@
                 </ion-item>
                 <button ion-item (click)="openBrokerDetail(property.broker)">
                     <ion-avatar item-left>
-                        <img src="{{property.broker.picture}}"/>
+                        <ion-icon item-left name="person"></ion-icon>
+                        <h3>Broker Details</h3>
                     </ion-avatar>
                     <h2>{{property.broker.name}}</h2>
                     <p>{{property.broker.title}}</p>
                 </button>
                 </ion-list>
-                <ion-item>
-                    <button ion-button icon-left (click)="favorite(property)" clear item-left>
-                        <ion-icon name="star"></ion-icon>
-                        Favorite
-                    </button>
-                    <button ion-button icon-left (click)="share(property)" clear item-right>
-                        <ion-icon name="share"></ion-icon>
-                        Share
-                    </button>
-                </ion-item>
+
             </ion-card>
 <div #map id="map"></div>
 </ion-content>
