@@ -4,6 +4,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 import { EmailComposer } from '@ionic-native/email-composer';
 import { ProductsPage } from '../pages/products/products';
 import { CheckoutPage } from '../pages/checkout/checkout';

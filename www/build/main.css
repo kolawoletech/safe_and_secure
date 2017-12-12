@@ -25362,9 +25362,17 @@ page-products .card-background-page .card-subtitle {
   color: #fff;
 }
 
-ion-note {
+.ios page-property-detail .scroll, .md page-property-detail .scroll {
+  height: 100%;
+}
+
+.ios page-property-detail ion-note, .md page-property-detail ion-note {
   color: #325494 !important;
   font-size: 1.4rem !important;
+}
+
+.ios page-property-detail #map, .md page-property-detail #map {
+  height: 50%;
 }
 
 .searchbar-input {

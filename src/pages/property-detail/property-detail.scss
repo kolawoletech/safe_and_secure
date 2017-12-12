@@ -1,4 +1,14 @@
-ion-note {
-  color: color($colors, primary) !important;
-  font-size: 1.4rem !important;
+.ios, .md {
+  page-property-detail {
+    .scroll {
+      height: 100%
+    }
+    ion-note {
+      color: color($colors, primary) !important;
+      font-size: 1.4rem !important;
+    }
+    #map {
+      height:50%;
+    }
+  }
 }
