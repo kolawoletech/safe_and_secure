@@ -24,7 +24,7 @@ export class PropertyService {
         requestHeaders.append("withCredentials","true");
         requestHeaders.append("Access-Control-Allow-Origin","http://localhost:8080");
         requestHeaders.append("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-        //requestHeaders.append("Access-Control-Allow-Headers", "Content-Type,Authorization,Upgrade-Insecure-Requests");
+        requestHeaders.append("Access-Control-Allow-Headers", "Content-Type,Authorization,Upgrade-Insecure-Requests");
         return this.http.request(new Request({
             method: RequestMethod.Get,
             url: propertiesURL,
@@ -35,14 +35,14 @@ export class PropertyService {
 
     }
 
-    findByName(key:string) {
-        return this.http.get(propertiesURL + "?key=" + key)
+    findByName(_id:string) {
+        return this.http.get(propertiesURL + _id)
             .map(res => res.json())
             .toPromise();
     }
 
-    findById(id) {
-        return this.http.get(propertiesURL + id)
+    findById(_id) {
+        return this.http.get(propertiesURL + _id)
             .map(res => res.json())
             .toPromise();
     }
