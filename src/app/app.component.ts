@@ -11,7 +11,6 @@ import { CategoriesPage } from '../pages/categories/categories';
 import { PropertyListPage } from '../pages/property-list/property-list';
 import { CleaningFormPage } from '../pages/cleaning-form/cleaning-form';
 import { DeliveryFormPage } from '../pages/delivery-form/delivery-form';
-import { MaintenanceFormPage } from '../pages/maintenance-form/maintenance-form';
 import { SupportPage } from '../pages/support/support';
 import { MarketcloudService } from '../providers/marketcloud-service';
 import { ConfigurationService } from '../providers/configuration-service';
@@ -34,7 +33,7 @@ export class MyApp {
   //
   // With a namespace you can have any apps you want (as long as you have unique namespace)
   // so for example set this value to the app's name
-  marketcloudAppNamespace: string = 'mcIonic2';
+  marketcloudAppNamespace: string = 'sslApp';
 
   pages: Array<{title: string, component: any}>;
   helpMenus: Array<{title: string, component: any}>;
@@ -67,7 +66,7 @@ export class MyApp {
         usesUntilPrompt: 5,
         promptAgainForEachNewVersion: false,
         storeAppURL: {
-          android: 'market://details?id=com.ssl.newbietech'
+          android: 'market://details?id=com.sslmobilecompany.ssl'
         },
         customLocale: {
           title: 'Do you enjoy %@?',
@@ -102,7 +101,7 @@ export class MyApp {
       ];
 
       this.requestForms = [
-        { title: 'Delivery', component: DeliveryFormPage },
+        { title: 'Take It There', component: DeliveryFormPage },
         { title: 'Cleaning', component: CleaningFormPage }
       ];
       // Marketcloud

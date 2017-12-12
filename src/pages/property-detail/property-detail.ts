@@ -16,9 +16,7 @@ export class PropertyDetailPage {
 
     constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController, public navParams: NavParams, public propertyService: PropertyService, public toastCtrl: ToastController) {
         this.property = this.navParams.data;
-        console.log(this.property.broker);
         var broker = this.property.broker;
-        console.log(this.property.broker);
         propertyService.findById(this.property._id).then(
             property => this.property = property
         );

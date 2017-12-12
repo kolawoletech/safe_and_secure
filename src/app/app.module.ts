@@ -17,12 +17,10 @@ import { CartPage } from '../pages/cart/cart';
 
 import { BrokerListPage } from '../pages/broker-list/broker-list';
 import { BrokerDetailPage } from '../pages/broker-detail/broker-detail';
-import { FavoriteListPage } from '../pages/favorite-list/favorite-list';
 import { PropertyDetailPage } from '../pages/property-detail/property-detail';
 import { PropertyListPage } from '../pages/property-list/property-list';
 import { RealEstatePage } from '../pages/real-estate/real-estate';
 import { DeliveryFormPage } from '../pages/delivery-form/delivery-form';
-import { MaintenanceFormPage } from '../pages/maintenance-form/maintenance-form';
 import { CleaningFormPage } from '../pages/cleaning-form/cleaning-form';
 import { ConfigurationService } from '../providers/configuration-service';
 import { IonicStorageModule } from '@ionic/storage'
@@ -46,13 +44,11 @@ import { MarketcloudService } from '../providers/marketcloud-service';
     OrderCompleteModalPage,
     BrokerListPage,
     BrokerDetailPage,
-    FavoriteListPage,
     PropertyDetailPage,
     PropertyListPage,
     RealEstatePage,
     DeliveryFormPage,
     CleaningFormPage,
-    MaintenanceFormPage,
     SupportPage,
     RequestCompleteModalPage
   ],
@@ -73,13 +69,11 @@ import { MarketcloudService } from '../providers/marketcloud-service';
     OrderCompleteModalPage,
     BrokerListPage,
     BrokerDetailPage,
-    FavoriteListPage,
     PropertyDetailPage,
     PropertyListPage,
     RealEstatePage,
     DeliveryFormPage,
     CleaningFormPage,
-    MaintenanceFormPage,
     SupportPage,
     RequestCompleteModalPage
   ],
