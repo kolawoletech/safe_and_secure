@@ -1,5 +1,8 @@
 <ion-header>
-    <ion-navbar  color="secondary">
+    <ion-navbar color="secondary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
         <ion-title>Broker</ion-title>
     </ion-navbar>
 </ion-header>
@@ -9,26 +12,26 @@
     <ion-card>
 
         <ion-card-content>
-            <img src="https://sslmobilecompany.com/wp-content/uploads/2017/05/imageedit_1_5528647791.png"/>
-            <h2>Matimba Bvuma </h2>
+            <img src="{{broker.picture}}"/>
+            <h2>{{broker.name}} </h2>
             <h3>Broker</h3>
         </ion-card-content>
 
         <ion-list>
-            <a href="tel:0734470676" ion-item>
+            <a href="tel:{{broker.Phone__c}}" ion-item>
                 <ion-icon name="call" item-left></ion-icon>
                 <p>Call Office</p>
-                <h2>0734470676</h2>
+                <h2>{{broker.phone}}</h2>
             </a>
-            <a href="tel:0820931352" ion-item>
+            <a href="tel:{{broker.phone}}" ion-item>
                 <ion-icon name="call" item-left></ion-icon>
                 <p>Call Mobile</p>
-                <h2>0820931352</h2>
+                <h2>{{broker.mobilePhone}}</h2>
             </a>
-            <a href="mailto:info@sslmobilecompany.com" ion-item>
+            <a href="mailto:{{broker.email}}" ion-item>
                 <ion-icon name="mail" item-left></ion-icon>
                 <p>Email</p>
-                <h2>info@sslmobilecompany.com</h2>
+                <h2>{{broker.email}}</h2>
             </a>
         </ion-list>
 

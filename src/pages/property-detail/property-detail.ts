@@ -4,15 +4,7 @@ import {BrokerDetailPage} from '../broker-detail/broker-detail';
 import {PropertyService} from '../../providers/property-service-rest';
 
 declare var google;
-var image = {
-    url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-    // This marker is 20 pixels wide by 32 pixels high.
-    size: new google.maps.Size(20, 32),
-    // The origin for this image is (0, 0).
-    origin: new google.maps.Point(0, 0),
-    // The anchor for this image is the base of the flagpole at (0, 32).
-    anchor: new google.maps.Point(0, 32)
-  };
+
 @Component({
     selector: 'page-property-detail',
     templateUrl: 'property-detail.html'
@@ -24,7 +16,9 @@ export class PropertyDetailPage {
 
     constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController, public navParams: NavParams, public propertyService: PropertyService, public toastCtrl: ToastController) {
         this.property = this.navParams.data;
-        console.log(this.property);
+        console.log(this.property.broker);
+        var broker = this.property.broker;
+        console.log(this.property.broker);
         propertyService.findById(this.property._id).then(
             property => this.property = property
         );
@@ -36,12 +30,11 @@ export class PropertyDetailPage {
     }
 
     startMap() {
-        let posMaceio = { lat: this.property.lat, lng:this.property.long }
+        let posMaceio = { lat: this.property.lat, lng: this.property.long }
         this.map = new google.maps.Map(this.mapElement.nativeElement, {
           zoom: 12,
           center: posMaceio,
-          mapTypeId: 'roadmap',
-          icon: image
+          mapTypeId: 'roadmap'
         });
 
         google.maps.event.addListener(this.map, 'click', (event) => {
@@ -59,7 +52,9 @@ export class PropertyDetailPage {
         });
     }
 
-    openBrokerDetail() {
-        this.navCtrl.push(BrokerDetailPage);
+
+    openBrokerDetail(broker) {
+        this.navCtrl.push(BrokerDetailPage, broker);
     }
+
 }

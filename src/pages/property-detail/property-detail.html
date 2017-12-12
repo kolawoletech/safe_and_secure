@@ -1,9 +1,11 @@
 <ion-header>
     <ion-navbar color="secondary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
         <ion-title>Property</ion-title>
     </ion-navbar>
 </ion-header>
-
 <ion-content>
         <ion-card>
                 <img src="{{property.picture}}"/>
@@ -32,8 +34,6 @@
                         <ion-icon item-left name="person"></ion-icon>
                         <h3>Broker Details</h3>
                     </ion-avatar>
-                    <h2>{{property.broker.name}}</h2>
-                    <p>{{property.broker.title}}</p>
                 </button>
                 </ion-list>
 
