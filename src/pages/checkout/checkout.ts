@@ -49,8 +49,8 @@ export class CheckoutPage {
     // Initial step counter
     this.step = 0;
     this.currentStep = "Address";
-    this.merchant_id= "12217927";
-    this.merchant_key= "ebp36hd9gs6u8";
+    this.merchant_id= "11832682";
+    this.merchant_key= "fqcs416l8h5t6";
     this.cancel_url="https://sslmobilecompany.com/payment-failure";
     this.success_url="https://sslmobilecompany.com/payment-failure";
     this.addressForm = formBuilder.group({
